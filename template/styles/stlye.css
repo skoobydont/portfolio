@@ -1,0 +1,60 @@
+/* xs is defualt */
+.body {
+    position: relative;
+    padding: 0;
+}
+
+.row {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+h1, h2 {
+    margin-top: 15px;
+}
+
+/* index nav stuff */
+#indexNav {
+    z-index: 1;
+}
+
+#indexNav .nav-item:hover {
+    border-bottom: slategrey;
+}
+
+#education {
+    margin: 6rem 2rem;    
+}
+
+#education li {
+    margin-bottom: 1rem;
+}
+
+#college li {
+    margin-bottom: 0;
+}
+/* freshman year stuff */ 
+#y1 p {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.classtile {
+    width: 85px;
+    height: auto;
+    text-align: center;
+    margin-left: .5rem;
+    margin-right: .5rem;
+
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {  }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {  }
+
+/*  Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {  }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  }
