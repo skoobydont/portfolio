@@ -24,16 +24,8 @@ const Nav = () => {
   const classes = useStyles();
   // to redirect
   const history = useHistory();
-  // menu item anchor element state
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  // handlers
-  const handleMenu = (e) => setAnchorEl(e.currentTarget);
-  const handleClose = () => setAnchorEl(null);
   // redirect handlers
   const handleHomeRedirect = () => history.push('/portfolio');
-  const handleProfileRedirect = () => history.replace('/profile');
-  const handleAccountRedirect = () => history.replace('/account');
   return (
     <AppBar position="static" className={classes.bar}>
       <IconButton
