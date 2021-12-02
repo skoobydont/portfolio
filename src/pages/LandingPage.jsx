@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core';
 // Custom
 import TLDR from '../components/TLDR';
+import ResumeTimeline from '../components/ResumeTimeline';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,6 +17,7 @@ const LandingPage = () => {
   return (
     <div className={classes.root}>
       <TLDR />
+      <ResumeTimeline />
     </div>
   );
 }
