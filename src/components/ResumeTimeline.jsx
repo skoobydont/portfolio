@@ -17,8 +17,8 @@ const ResumeTimeline = () => {
   return (
     <Timeline>
       {resume.resume?.length > 0
-        ? resume.resume?.map((r) => (
-          <TimelineItem>
+        ? resume.resume?.map((r, i) => (
+          <TimelineItem key={i}>
             <TimelineOppositeContent>
               {r.employer.name}
               <br />
@@ -33,27 +33,32 @@ const ResumeTimeline = () => {
                 ? (
                   r.title.forEach((t) => (
                     <div>
-                      {console.log('t', t)}
-                      {console.log('r', r)}
-                      {t} : {r.startDate[t]} - {r.endDate[t]}
+                      {/* {console.log('t', t)}
+                      {console.log('r', r)} */}
+                      {t}
                       <br />
-                      <ul>
-                        {console.log('r.des[t]', r.description[t])}
+                      {r.startDate[t]} - {r.endDate[t]}
+                      <br />
+                      <div>
+                        {/* {console.log('r.des[t]', r.description[t])} */}
                         {r.description[t].forEach((d) => (
-                          <li>{d}</li>
+                          <div>{`- ${d}`}</div>
                         ))}
-                      </ul>
+                      </div>
                     </div>
                   ))
                 ) : (
                   <div>
-                    {r.title} : {r.startDate} - {r.endDate}
+                    {r.title}
                     <br />
-                    <ul>
+                    {r.startDate} - {r.endDate}
+                    <br />
+                    <div>
+                      {/* {console.log('r.des', r.description)} */}
                       {r.description.forEach((d) => (
-                        <li>{d}</li>
+                        <div>{console.log('deez', d)}{`- ${d}`}</div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 )}
             </TimelineContent>
