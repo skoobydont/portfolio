@@ -31,7 +31,7 @@ const Nav = () => {
   const handleMenu = (e) => setAnchorEl(e.currentTarget);
   const handleClose = () => setAnchorEl(null);
   // redirect handlers
-  const handleHomeRedirect = () => history.replace('/reach_for_algo');
+  const handleHomeRedirect = () => history.push('/portfolio');
   const handleProfileRedirect = () => history.replace('/profile');
   const handleAccountRedirect = () => history.replace('/account');
   return (
@@ -44,42 +44,6 @@ const Nav = () => {
       >
         <HomeIcon />
       </IconButton>
-      <IconButton
-        aria-label="account of current user"
-        aria-controls="menu-appbar"
-        className={classes.account}
-        aria-haspopup="true"
-        onClick={handleMenu}
-        color="inherit"
-      >
-        <AccountCircle />
-      </IconButton>
-      <Menu
-        id="menu-appbar"
-        anchorEl={anchorEl}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        keepMounted
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        open={open}
-        onClose={handleClose}
-      >
-        <MenuItem
-          onClick={handleProfileRedirect}
-        >
-          Profile
-        </MenuItem>
-        <MenuItem
-          onClick={handleAccountRedirect}
-        >
-          My account
-        </MenuItem>
-      </Menu>
     </AppBar>
   )
 };

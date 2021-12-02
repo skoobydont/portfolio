@@ -1,8 +1,7 @@
 {
-  "name": "reach-wallet",
-  "homepage": "https://skoobydont.github.io/reach_for_algo/",
+  "name": "portfolio",
+  "homepage": "https://skoobydont.github.io/portfolio/",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@reach-sh/stdlib": "^0.1.3-rc.4",
     "@material-ui/core": "^4.12.3",
