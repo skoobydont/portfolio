@@ -2,7 +2,7 @@
 # A JavaScript Portfolio
 This originated as a bootstrap, html, css portfolio repository but I felt that updating it would help reflect my current JavaScript capabilities.
 <div>
-  <a href="https://nodejs.org/en/" target="_blank">
+  <a href="https://nodejs.org/en/" target="_blank" rel="noopener">
     <img
       src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fngts-eg.com%2Fwp-content%2Fuploads%2F2020%2F01%2Fnodejs_logo.png&f=1&nofb=1"
       alt="node.js"
@@ -10,7 +10,7 @@ This originated as a bootstrap, html, css portfolio repository but I felt that u
       height="35px"
     />
   </a>
-  <a href="https://reactjs.org/" target="_blank">
+  <a href="https://reactjs.org/" target="_blank" rel="noopener">
     <img
       src="https://logos-download.com/wp-content/uploads/2016/09/React_logo_logotype_emblem.png"
       alt="React.js"
@@ -18,7 +18,7 @@ This originated as a bootstrap, html, css portfolio repository but I felt that u
       height="35px"
     />
   </a>
-  <a href="https://github.com/mui-org/material-ui" target="_blank">
+  <a href="https://github.com/mui-org/material-ui" target="_blank" rel="noopener">
     <img
       src="https://mui.com/static/logo.svg"
       alt="MUI"
