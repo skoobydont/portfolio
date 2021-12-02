@@ -24,5 +24,9 @@ In order to run the site locally,
   - `npm start`
 5. Visit [localhost](localhost:3000) after compiling successfully.
 <hr>
+<div align="center">
+
 [![MUI](https://mui.com/static/logo.svg)]
 [![React.js](https://logos-download.com/wp-content/uploads/2016/09/React_logo_logotype_emblem.png)]
+
+</div>
