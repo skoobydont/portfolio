@@ -31,6 +31,7 @@ This originated as a bootstrap, html, css portfolio repository but I felt that u
 ## Original Bootstrap Template
 The original html bootsrap template files can be found within
 `/bootstrap-template`.
+
 Simply opening the `index.html` file in your preferred web browser will render the document.
 
 ## JavaScript Portion
