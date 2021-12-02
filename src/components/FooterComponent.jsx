@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 const Footer = () => {
   const classes = useStyles();
   const history = useHistory();
-  const handleHomeRedirect = () => history?.replace('/reach_for_algo');
+  const handleHomeRedirect = () => history?.push('/portfolio');
   return (
     <BottomNavigation className={classes.root}>
       <BottomNavigationAction
