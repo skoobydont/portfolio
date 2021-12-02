@@ -1,0 +1,105 @@
+{
+  "resume": [
+    {
+      "employer": {
+        "name": "Prosper Marketplace LLC",
+        "city": "Cincinnati",
+        "state": "Ohio"
+      },
+      "startDate": "2021-10-01",
+      "endDate": null,
+      "title": "Chief Information Technology Officer",
+      "description": [
+        "Engineered security-focused IT infrastructure for 2+ web solutions",
+        "Researched & implemented various blockchain integrations (Algorand, Ethereum)",
+        "Provided frequent system audits to ensure proper encryption & configuration"
+      ]
+    },
+    {
+      "employer": {
+        "name": "Fischer Homes",
+        "city": "Hebron",
+        "state": "Kentucky"
+      },
+      "startDate": "2020-07-01",
+      "endDate": "2021-10-01",
+      "title": "Application Developer",
+      "description": [
+        "Assisted in maintenance & enhancements of 5+ legacy systems (PHP, JS)",
+        "Delivered 4+ web applications & 3+ apis (MaterialUI, React.js, Express.js, SQL, Docker)",
+        "Participated in daily stand-up meetings & code reviews"
+      ]
+    },
+    {
+      "employer": {
+        "name": "Kelly Q's BBQ & Whipper's Dairy",
+        "city": "Walton",
+        "state": "Kentucky"
+      },
+      "startDate": "2020-01-01",
+      "endDate": "2020-07-01",
+      "title": "Freelance Fullstack Developer",
+      "description": [
+        "Collaborated with restaurant owners to gather user requirements",
+        "Utilized WordPress as content management system and built custom queries to dynamically display data",
+        "Integrated Zapier to automate publishing consistent updates across social networks"
+      ]
+    },
+    {
+      "employer": {
+        "name": "Tata Consultancy Services",
+        "city": "Milford",
+        "state": "Ohio"
+      },
+      "startDate": "2019-06-01",
+      "endDate": "2019-12-01",
+      "title": "Software Engineer",
+      "description": [
+        "Integrated remote SQL databases with JSP web applications",
+        "Utilized Spring Boot and JUnit to write effective, thoroughly tested, microservices",
+        "Processed user requirements into executable code within Agile sprints"
+      ]
+    },
+    {
+      "employer": {
+        "name": "Upright Communications",
+        "city": "Cincinnati",
+        "state": "Ohio"
+      },
+      "startDate": "2019-02-01",
+      "endDate": "2019-05-01",
+      "title": "Front End Developer",
+      "description": [
+        "Collaborated with 4+ account managers to facilitate web site appearance and functionality of 20+ clients",
+        "Utilized Advanced Custom Fields and PHP to build responsive, component-based sites",
+        "Improved site search engine optimization with plug-in Yoast SEO and Google Analytics"
+      ]
+    },
+    {
+      "employer": {
+        "name": "University of Cincinnati",
+        "city": "Cincinnati",
+        "state": "Ohio"
+      },
+      "startDate": {
+        "Student Orientation Leader": "2019-02-01",
+        "Peer Tutor/Supplemental Review Session Leader": "2016-08-01"
+      },
+      "endDate": {
+        "Student Orientation Leader": "2019-05-01",
+        "Peer Tutor/Supplemental Review Session Leader": "2018-10-01"
+      },
+      "title": ["Student Orientation Leader", "Peer Tutor/Supplemental Review Session Leader"],
+      "description": {
+        "Student Orientation Leader": [
+          "Directed groups of 25 - 75+ guests throughout campus and provided insight to questions or concerns",
+          "Facilitated activities and discussions for groups of 18 - 24 incoming students"
+        ],
+        "Peer Tutor/Supplemental Review Session Leader": [
+          "Developed up to 5 lesson plans a week for Learning Communities of 20+ first-year exploratory students",
+          "Facilitated individual and group activities for student exposure to classmates and university resources"
+        ]
+      }
+    }
+  ]
+}
