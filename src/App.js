@@ -76,42 +76,7 @@ const App = () => {
         <div className="App container-fluid">
           <Switch>
             <Route
-              path="/profile"
-              exact
-              render={(props) => (
-                <ProfilePage
-                  {...props}
-                  account={account}
-                  balance={balance}
-                  fundAmount={fundAmount}
-                  connectWallet={connectWallet}
-                  fundWallet={fundWallet}
-                  refresh={refresh}
-                />
-              )}
-            />
-            <Route
-              path="/account"
-              exact
-              render={(props) => (
-                <AccountPage
-                  {...props}
-                  user={account}
-                />
-              )}
-            />
-            <Route
-              path="/property/:id"
-              exact
-              render={(props) => (
-                <ProductPage
-                  {...props}
-                  user={account}
-                />
-              )}
-            />
-            <Route
-              path="/reach_for_algo"
+              path="/portfolio"
               exact
               render={(props) => (
                 <LandingPage
