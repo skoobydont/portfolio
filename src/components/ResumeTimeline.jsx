@@ -1,24 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 // MUI
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, useMediaQuery } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-// Icons
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
 // Custom
 import resume from '../resume.json';
 // Styles
 const useStyles = makeStyles((theme) => ({
-  rowCard: {
-    padding: theme.spacing(1),
+  mobileRow: {
     margin: theme.spacing(1),
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    marginTop: '0px',
+  },
+  desktopRow: {
+    margin: `${theme.spacing(1)}px auto`,
+    width: theme.spacing(75),
+  },
+  rowAction: {
+    padding: theme.spacing(1),
+    '& .MuiAccordionSummary-content': {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    '& .MuiAccordionSummary-content.Mui-expanded': {
+      /* this is so the title text doesnt inherit
+        unwanted margin when expanded */
+      margin: '12px 0px',
+    },
+  },
+  mobileRowAction: {
+    '& .MuiAccordionSummary-content': {
+      flexDirection: 'column',
+    },
   },
   empName: {
     textAlign: 'start',
@@ -29,6 +45,17 @@ const useStyles = makeStyles((theme) => ({
   doubleTitle: {
     marginTop: theme.spacing(1),
   },
+  rowDescription: {
+    flexDirection: 'column',
+  },
+  doubleDescription: {
+    display: 'flex',
+    flexDirection: 'column',
+    textAlign: 'start',
+  },
+  descriptionList: {
+    marginTop: '0px',
+  },
 }));
 /**
  * Display Resume Work Experience In Timeline
@@ -36,6 +63,8 @@ const useStyles = makeStyles((theme) => ({
  */
 const ResumeTimeline = () => {
   const classes = useStyles();
+  const mobile = useMediaQuery('(max-width:600px)');
+  const [expanded, setExpanded] = useState(null);
   /**
    * Format Date
    * @param {String | null} date the date to format
@@ -50,59 +79,117 @@ const ResumeTimeline = () => {
       return 'Present';
     }
   }
+  /**
+   * Handle Accordion Change
+   * @param {String} title which accordion to expand (null if same as expanded)
+   * @fires setExpanded
+   */
+  const handleAccordionChange = (title) => {
+    if (expanded !== title) {
+      setExpanded(title);
+    } else {
+      setExpanded(null);
+    }
+  }
+  /**
+   * Resume Row
+   * @param {Object} entry the resume entry to display within accordion 
+   * @returns {Component} Resume Row Component
+   */
   const ResumeRow = ({ entry }) => {
+    const arrayTitle = Array.isArray(entry.title);
     return (
-      <Card variant="elevation" className={classes.rowCard}>
-        <div className={classes.empName}>
-          <Typography>{entry.employer.name}</Typography>
-          <Typography variant="body2">
-            <i>
-              {entry.employer.city}
-              , {entry.employer.state}
-            </i>
-          </Typography>
-        </div>
-        <div className={classes.title}>
-          {Array.isArray(entry.title)
-            ? entry.title?.map((t, i) => (
-              <div className={i % 2 !== 0 ? classes.doubleTitle : ''}>
-                {t.indexOf('/') > -1
-                  ? (
-                    <>
-                      <Typography>{t?.split('/')[0]} /</Typography>
-                      <Typography>{t?.split('/')[1]}</Typography>
-                    </>
-                  )
-                  : <Typography>{t}</Typography>
-                }
-                <Typography variant="body2">
-                  <i>
-                    {`${formatDate(entry.startDate[t])}
-                    - ${formatDate(entry.endDate[t])}`}
-                  </i>
-                </Typography>
-              </div>
-            ))
-            : (
-              <>
-                <Typography>{entry.title}</Typography>
-                <Typography variant="body2">
-                  <i>
-                    {`${formatDate(entry.startDate)}
-                    - ${formatDate(entry.endDate)}`}
-                  </i>
-                </Typography>
-              </>
-            )}
-        </div>
-      </Card>
+      <div className={mobile
+        ? classes.mobileRow
+        : classes.desktopRow}
+      >
+        <Accordion
+          component={Card}
+          expanded={expanded === entry.employer.name}
+          onClick={() => handleAccordionChange(entry.employer.name)}
+        >
+          <AccordionSummary
+            className={`${
+              mobile ? classes.mobileRowAction : ''
+            } ${classes.rowAction}`}
+          >
+            <div className={classes.empName}>
+              <Typography>{entry.employer.name}</Typography>
+              <Typography variant="body2">
+                <i>
+                  {entry.employer.city}
+                  , {entry.employer.state}
+                </i>
+              </Typography>
+            </div>
+            <div className={classes.title}>
+              {arrayTitle
+                ? entry.title?.map((t, i) => (
+                  <div
+                    className={i % 2 !== 0 ? classes.doubleTitle : ''}
+                    key={i}
+                  >
+                    {t.indexOf('/') > -1
+                      ? (
+                        <>
+                          <Typography>{t?.split('/')[0]} /</Typography>
+                          <Typography>{t?.split('/')[1]}</Typography>
+                        </>
+                      )
+                      : <Typography>{t}</Typography>
+                    }
+                    <Typography variant="body2">
+                      <i>
+                        {`${formatDate(entry.startDate[t])}
+                        - ${formatDate(entry.endDate[t])}`}
+                      </i>
+                    </Typography>
+                  </div>
+                ))
+                : (
+                  <>
+                    <Typography>{entry.title}</Typography>
+                    <Typography variant="body2">
+                      <i>
+                        {`${formatDate(entry.startDate)}
+                        - ${formatDate(entry.endDate)}`}
+                      </i>
+                    </Typography>
+                  </>
+                )}
+            </div>
+          </AccordionSummary>
+          <AccordionDetails className={classes.rowDescription}>
+            {arrayTitle
+              ? entry.title?.map((t, i) => (
+                <div className={classes.doubleDescription} key={i}>
+                  <Typography>{t}</Typography>
+                  <ul className={classes.descriptionList}>
+                    {entry.description[t]?.map((d) => (
+                      <li>{d}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+              : (
+                <div className={classes.doubleDescription}>
+                  <ul className={classes.descriptionList}>
+                    {entry.description?.map((d) => (
+                      <li>{d}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+          </AccordionDetails>
+        </Accordion>
+      </div>
     );
   };
 
   return (
     resume.resume?.length > 0
-      ? resume.resume?.map((r) => (
-          <ResumeRow entry={r} />
+      ? resume.resume?.map((r, i) => (
+          <ResumeRow entry={r} key={i} />
         ))
       : null
   );
