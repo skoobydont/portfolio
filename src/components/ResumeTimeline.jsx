@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 // MUI
 import { makeStyles, useMediaQuery } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
@@ -6,6 +7,9 @@ import Card from '@material-ui/core/Card';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
+import IconButton from '@material-ui/core/IconButton';
+// Icons
+import CloseIcon from '@material-ui/icons/Close';
 // Custom
 import resume from '../resume.json';
 // Styles
@@ -61,9 +65,10 @@ const useStyles = makeStyles((theme) => ({
  * Display Resume Work Experience In Timeline
  * @returns {Component}
  */
-const ResumeTimeline = () => {
+const ResumeTimeline = (props) => {
   const classes = useStyles();
   const mobile = useMediaQuery('(max-width:600px)');
+  const { handleClose } = props;
   const [expanded, setExpanded] = useState(null);
   /**
    * Format Date
@@ -96,7 +101,7 @@ const ResumeTimeline = () => {
    * @param {Object} entry the resume entry to display within accordion 
    * @returns {Component} Resume Row Component
    */
-  const ResumeRow = ({ entry }) => {
+  const ResumeRow = ({ entry, index }) => {
     const arrayTitle = Array.isArray(entry.title);
     return (
       <div className={mobile
@@ -182,6 +187,13 @@ const ResumeTimeline = () => {
               )}
           </AccordionDetails>
         </Accordion>
+        {index === resume.resume.length - 1
+          ? (
+            <IconButton onClick={() => handleClose()}>
+              <CloseIcon />
+            </IconButton>
+          )
+          : null}
       </div>
     );
   };
@@ -189,10 +201,18 @@ const ResumeTimeline = () => {
   return (
     resume.resume?.length > 0
       ? resume.resume?.map((r, i) => (
-          <ResumeRow entry={r} key={i} />
+          <ResumeRow
+            entry={r}
+            key={i}
+            index={i}
+          />
         ))
       : null
   );
+};
+
+ResumeTimeline.propTypes = {
+  handleClose: PropTypes.func.isRequired,
 };
 
 export default ResumeTimeline;
