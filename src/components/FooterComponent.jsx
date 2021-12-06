@@ -29,7 +29,16 @@ const useStyles = makeStyles((theme) => ({
 const Footer = () => {
   const classes = useStyles();
   const history = useHistory();
+  /**
+   * Handle Home Redirect
+   * @returns {Function} push users back to home url
+   */
   const handleHomeRedirect = () => history?.push(process.env.REACT_APP_HOME_URL);
+  /**
+   * Handle Opening Link in New Tab
+   * @param {String} link the url you want to be opened in a new tab
+   * @returns {null}
+   */
   const handleOpenTab = (link) => {
     const win = window.open(link, "_blank");
     win.focus();
