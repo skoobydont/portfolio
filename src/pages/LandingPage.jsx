@@ -63,7 +63,9 @@ const LandingPage = () => {
           <Typography className={classes.workExpTitle}>Work Experience</Typography>
         </AccordionSummary>
         <AccordionDetails className={classes.resumeList}>
-          <ResumeTimeline />          
+          <ResumeTimeline
+            handleClose={handleResumeExpand}
+          />          
         </AccordionDetails>
       </Accordion>
     </div>
