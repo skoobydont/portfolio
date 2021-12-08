@@ -1,13 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router';
 // MUI
 import { makeStyles } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
-import IconButton from '@material-ui/core/IconButton';
-import HomeIcon from '@material-ui/icons/Home';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   bar: {
@@ -16,6 +12,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
+  },
+  text: {
+    textTransform: 'none',
+    '& span.MuiButton-label': {
+      color: 'rgba(255, 255, 255, 0.7)',
+    },
   },
 }));
 
@@ -28,14 +30,13 @@ const Nav = () => {
   const handleHomeRedirect = () => history.push('/portfolio');
   return (
     <AppBar position="static" className={classes.bar}>
-      <IconButton
-        edge="start"
-        color="inherit"
-        aria-label="home"
+      <Button
+        variant="text"
         onClick={handleHomeRedirect}
+        className={classes.text}
       >
-        <HomeIcon />
-      </IconButton>
+        Skubak.AJ
+      </Button>
     </AppBar>
   )
 };
