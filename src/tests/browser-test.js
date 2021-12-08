@@ -11,7 +11,56 @@ require('chromedriver');
 require('geckodriver');
 // vars
 const PORTFOLIO_URL = 'https://skoobydont.github.io/portfolio';
-// 
+const testHeader = async (drvr) => {
+  try {
+    return await drvr
+      .wait(
+        until.elementsLocated(By.id('header')),
+        1000,
+      )
+      .then(async () => {
+        const header = await drvr
+          .findElement(By.id('header'));
+        console.log('the header', header);
+        return header;
+      })
+      .catch((err) => {
+        console.error(err);
+        return false;
+      });
+  } catch (e) {
+    console.error(e);
+    return false;
+  }
+}
+// find div id = root
+/**
+ * Test Initial Application Load
+ * @param {Object} drvr the driver
+ * @returns {Boolean} if div id root is found
+ */
+const testInitLoad = async (drvr) => {
+  try {
+    return await drvr
+      .wait(
+        until.elementsLocated(By.id('root')),
+        1000,
+      )
+      .then(async () => {
+        const rootDiv = await drvr
+          .findElement(By.id('root'));
+        return Boolean(rootDiv);
+      })
+      .catch((err) => {
+        console.error(err);
+        return false;
+      });
+  } catch (e) {
+    console.error(e);
+    return false;
+  }
+};
+
 /**
  * Single Browser Google Search Test
  * @param {String} browser the specified browser to test
@@ -24,6 +73,15 @@ const singleBrowserTest = async (browser) => {
   const driver = await new Builder().forBrowser(browser).build();
   // get site
   await driver.get(PORTFOLIO_URL);
+  // test that root div loads correctly
+  const initLoad = await testInitLoad(driver);
+  console.log('the init load res', initLoad);
+  if (initLoad) {
+    // additional tests post init load
+    const headerRes = await testHeader(driver);
+    console.log('the header res', headerRes);
+  }
+  // test header
   // find search input & send query + press enter (return)
   // await driver
   //   .wait(
@@ -56,6 +114,7 @@ const singleBrowserTest = async (browser) => {
   //   });
   // cleanup
   await driver.quit();
+  console.log('close em');
   // return if title equates to search string
   // return title === `${SEARCHSTRING} - Google Search`;
 };
