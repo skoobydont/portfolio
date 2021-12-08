@@ -68,7 +68,9 @@ const useStyles = makeStyles((theme) => ({
 const ResumeTimeline = (props) => {
   const classes = useStyles();
   const mobile = useMediaQuery('(max-width:600px)');
+  // props
   const { handleClose } = props;
+  // state
   const [expanded, setExpanded] = useState(null);
   /**
    * Format Date
