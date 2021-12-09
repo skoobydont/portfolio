@@ -27,7 +27,7 @@ const Nav = () => {
   // to redirect
   const history = useHistory();
   // redirect handlers
-  const handleHomeRedirect = () => history.push('/portfolio');
+  const handleHomeRedirect = () => history.push(process.env.REACT_APP_HOME_URL);
   return (
     <AppBar position="static" className={classes.bar}>
       <Button

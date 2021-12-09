@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     maxWidth: theme.spacing(5),
-    // marginBottom: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
     marginLeft: theme.spacing(-1),
     '& :hover': {
       color: "#FFF",
@@ -54,6 +54,7 @@ const Footer = () => {
         )}
         className={classes.icon}
         onClick={handleHomeRedirect}
+        id="Home"
       />
       <BottomNavigationAction
         icon={(
@@ -63,6 +64,7 @@ const Footer = () => {
         )}
         className={classes.icon}
         onClick={() => handleOpenTab(process.env.REACT_APP_LINKED_IN_URL)}
+        id="LinkedIn"
       />
       <BottomNavigationAction
         icon={(
@@ -72,6 +74,7 @@ const Footer = () => {
         )}
         className={classes.icon}
         onClick={() => handleOpenTab(process.env.REACT_APP_GITHUB_URL)}
+        id="GitHub"
       />
     </BottomNavigation>
   );
