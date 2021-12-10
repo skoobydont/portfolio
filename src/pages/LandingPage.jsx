@@ -54,6 +54,7 @@ const LandingPage = () => {
         component={Card}
         expanded={resumeExpand}
         className={classes.accordion}
+        id="workExp"
       >
         <AccordionSummary
           onClick={() => handleResumeExpand()}

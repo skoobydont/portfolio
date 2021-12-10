@@ -15,12 +15,87 @@ const PORTFOLIO_URL = 'http://localhost:3000/portfolio';
 const NAV_TEXT = 'Skubak.AJ';
 const LINKEDIN_URL='https://www.linkedin.com/in/ajskubak';
 const GITHUB_URL='https://github.com/skoobydont';
+/* Helpers */
 /**
  * Clean Up Url From Special Encoding
  * @param {String} url some funky url
  * @returns {String} replaces any encoded characters
  */
 const cleanUrl = (url) => url.replace(/%2F/g, '/').replace(/%3A/g, ':');
+/**
+ * Update Test Results
+ * @param {Object} currentRes current test result object
+ * @param {Object} newRes the new test results
+ * @returns {Object} updated test result object
+ */
+const updatedTestResults = (currentRes, newRes) => {
+  if (currentRes === null || newRes === null) return {};
+  let res = { ...currentRes };
+  if (Object.keys(newRes).length > 0) {
+    Object.keys(newRes).forEach((nR) => {
+      res = {
+        ...res,
+        [nR]: newRes[nR],
+      };
+    });
+  }
+  return res;
+};
+/* Test Logic */
+const testWorkExp = async (drvr) => {
+  try {
+    return await drvr
+      .wait(
+        until.elementLocated(By.id('workExp')),
+        1500,
+      )
+      .then(async () => {
+        const workExp = await drvr
+          .findElement(By.id('workExp'));
+        console.log('work exp ', workExp);
+        await workExp.click();
+        await drvr.sleep(1000);
+        // TODO: expanded resume test logic
+        return {
+          workExp: Boolean(workExp),
+        };
+      })
+      .catch((er) => {
+        throw new Error(er);
+      })
+  } catch (e) {
+    console.error(e);
+    return false;
+  }
+};
+/**
+ * Test TLDR
+ * @param {Object} drvr web driver
+ * @returns {Object} does TLDR render?
+ */
+const testTLDR = async (drvr) => {
+  try {
+    return await drvr
+      .wait(
+        until.elementLocated(By.css('code')),
+        1500,
+      )
+      .then(async () => {
+        const tldr = await drvr
+          .findElement(By.css('code'))
+          .getText();
+        return {
+          tldr: tldr.includes('TLDR'),
+        };
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+  } catch (e) {
+    console.error(e);
+    return false;
+  }
+};
 /**
  * Test Footer Buttons
  * @param {Object} drvr current driver
@@ -61,6 +136,8 @@ const testFooterButtons = async (drvr) => {
         // switch to newly opened tab & check url
         await drvr.switchTo().window(moreTabs[1]);
         const githubUrl = await drvr.getCurrentUrl();
+        // go back home
+        await drvr.switchTo().window(moreTabs[0]);
         // return results of each button
         return {
           homeButton: cleanUrl(theHomeUrl).includes(PORTFOLIO_URL),
@@ -158,24 +235,16 @@ const singleBrowserTest = async (browser) => {
     // additional tests post init load
     // nav tests
     const navRes = await testNavText(driver);
-    if (Object.keys(navRes).length > 0) {
-      Object.keys(navRes).forEach((key) => {
-        testRes = {
-          ...testRes,
-          [key]: navRes[key],
-        };
-      });
-    }
+    testRes = updatedTestResults(testRes, navRes);
     // footer tests
     const footRes = await testFooterButtons(driver);
-    if (Object.keys(footRes).length > 0) {
-      Object.keys(footRes).forEach((key) => {
-        testRes = {
-          ...testRes,
-          [key]: footRes[key],
-        };
-      });
-    }
+    testRes = updatedTestResults(testRes, footRes);
+    // tldr tests
+    const tldrRes = await testTLDR(driver);
+    testRes = updatedTestResults(testRes, tldrRes);
+    // work exp tests
+    const workRes = await testWorkExp(driver);
+    testRes = updatedTestResults(testRes, workRes);
   }
   // cleanup
   await driver.quit();
