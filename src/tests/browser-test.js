@@ -151,49 +151,36 @@ const singleBrowserTest = async (browser) => {
   const driver = await new Builder().forBrowser(browser).build();
   // get site
   await driver.get(PORTFOLIO_URL);
+  let testRes = {};
   // test that root div loads correctly
   const initLoad = await testInitLoad(driver);
   if (initLoad.initLoad) {
     // additional tests post init load
+    // nav tests
     const navRes = await testNavText(driver);
+    if (Object.keys(navRes).length > 0) {
+      Object.keys(navRes).forEach((key) => {
+        testRes = {
+          ...testRes,
+          [key]: navRes[key],
+        };
+      });
+    }
+    // footer tests
     const footRes = await testFooterButtons(driver);
-    console.log('the footres', footRes);
+    if (Object.keys(footRes).length > 0) {
+      Object.keys(footRes).forEach((key) => {
+        testRes = {
+          ...testRes,
+          [key]: footRes[key],
+        };
+      });
+    }
   }
-  // test header
-  // find search input & send query + press enter (return)
-  // await driver
-  //   .wait(
-  //     until.elementsLocated(By.name('q')),
-  //     1000
-  //   )
-  //   .then(async () => {
-  //     await driver
-  //       .findElement(By.name('q'))
-  //       .sendKeys(SEARCHSTRING, Key.RETURN);
-  //   })
-  //   .catch((e) => {
-  //     console.error('esh ', e);
-  //   });
-  // verify page title
-  // const title = await driver
-  //   .wait(
-  //     until.titleIs(`${SEARCHSTRING} - Google Search`),
-  //     1000,
-  //   )
-  //   .then(async () => {
-  //     try {
-  //       return await driver.getTitle();
-  //     } catch (err) {
-  //       throw new Error(err);
-  //     }
-  //   })
-  //   .catch((e) => {
-  //     console.error('yeesh ', e);
-  //   });
   // cleanup
   await driver.quit();
-  // return if title equates to search string
-  // return title === `${SEARCHSTRING} - Google Search`;
+
+  return testRes;
 };
 /**
  * Run Multiple Browser Tests
@@ -212,7 +199,22 @@ const multiBrowserTests = async () => {
     async (sB) => {
       try {
         const result = await singleBrowserTest(sB);
-        console.log(`${sB}: ${result ? 'passed' : 'failed'}`);
+        if (typeof result === 'object' && Object.keys(result).length > 0) {
+          const failedTests = [];
+          const passedTests = [];
+          Object.keys(result).forEach((r, i) => {
+            console.log(` ${i} - ${r}: ${result[r]}`);
+            if (Boolean(result[r])) {
+              passedTests.push(result[r]);
+            } else {
+              failedTests.push(result[r]);
+            }
+          });
+          console.log(`${failedTests.length} failed tests`);
+          console.log(`${passedTests.length} passed tests`);
+          process.exit(0);
+        }
+        
       } catch (e) {
         console.error(e);
       }
