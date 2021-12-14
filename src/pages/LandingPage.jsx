@@ -49,7 +49,7 @@ const LandingPage = () => {
   const handleResumeExpand = () => setResumeExpand(!resumeExpand);
   return (
     <div className={classes.root}>
-      <TLDR />
+      {/* <TLDR /> */}
       <Accordion
         component={Card}
         expanded={resumeExpand}
