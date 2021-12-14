@@ -2,7 +2,7 @@
   "resume": [
     {
       "employer": {
-        "name": "Prosper Marketplace LLC",
+        "name": "Prosper Market",
         "city": "Cincinnati",
         "state": "Ohio"
       },
@@ -10,9 +10,9 @@
       "endDate": null,
       "title": "Chief Information Technology Officer",
       "description": [
-        "Engineered security-focused IT infrastructure for 2+ web solutions",
-        "Researched & implemented various blockchain integrations (Algorand, Ethereum)",
-        "Provided frequent system audits to ensure proper encryption & configuration"
+        "Administrates IT infrastructure for 2+ web solutions in accordance with security best practices",
+        "Researched & implemented various blockchain integrations (Algorand, Ethereum, AlgoSigner)",
+        "Utilized Selenium to automate frequent system audits to ensure proper encryption and configuration"
       ]
     },
     {
@@ -25,9 +25,9 @@
       "endDate": "2021-10-01",
       "title": "Application Developer",
       "description": [
-        "Assisted in maintenance & enhancements of 5+ legacy systems (PHP, JS)",
-        "Delivered 4+ web applications & 3+ apis (MaterialUI, React.js, Express.js, SQL, Docker)",
-        "Participated in daily stand-up meetings & code reviews"
+        "Assisted in containerizing 3+ legacy systems (PHP, JS) for easier local development and maintenance",
+        "Delivered and maintained 4+ web applications, 3+ apis (MaterialUI, React.js, Express.js, SQL, Docker)",
+        "Worked alongside Senior Developers and DevOps Engineers to improve coding standards and practices"
       ]
     },
     {
