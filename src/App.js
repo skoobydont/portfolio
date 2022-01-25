@@ -5,70 +5,19 @@ import {
   Route,
 } from 'react-router-dom';
 
-import * as reach from '@reach-sh/stdlib/ALGO';
-
 import './App.css';
 import MainTheme from './components/Theme';
 import Nav from './components/NavComponent';
 import Footer from './components/FooterComponent';
 import LandingPage from './pages/LandingPage';
+import SoftwareExperiencePage from './pages/SoftwareExperiencePage';
+import HardwareExperiencePage from './pages/HardwareExperiencePage';
+import OtherProjectsPage from './pages/OtherProjectsPage';
 import ProductPage from './pages/ProductPage';
 import ProfilePage from './pages/ProfilePage';
 import AccountPage from './pages/AccountPage';
 
 const App = () => {
-  
-  const account = useRef();
-  const balance = useRef();
-  const fundAmount = useRef();
-  const [refresh, setRefresh] = useState(false);
-  // helpers
-  /**
-   * Fund Wallet With TestNet Algo
-   * @async
-   * @fires setRefresh
-   */
-   const fundWallet = async () => {
-    setRefresh(true);
-    const faucet = await reach.getFaucet();
-    await reach.transfer(
-      faucet,
-      account.current,
-      reach.parseCurrency(fundAmount.current),
-    );
-    await getBalance();
-    setRefresh(false);
-  }
-  /**
-   * Get Account
-   * @async
-   * @returns {Promise} set current account to result of reach.getDefaultAccount()
-   */
-  const getAccount = async () => account.current = await reach.getDefaultAccount();
-  const getBalance = async () => {
-    /**
-     * balanceOf returns in microalgos
-     */
-    const rawBalance = await reach.balanceOf(account.current);
-    /**
-     * format microalgos to Algos & assign to current balance
-     */
-    balance.current = reach.formatCurrency(rawBalance, 4);
-  }
-  /**
-   * Connect to Wallet
-   * @async
-   * @fires getAccount
-   * @fires getBalance
-   * @fires setRefresh
-   */
-  const connectWallet = async () => {
-    await getAccount();
-    setRefresh(true);
-    await getBalance();
-    setRefresh(false);
-  }
-
   return (
     <MainTheme>
       <Router>
@@ -81,7 +30,33 @@ const App = () => {
               render={(props) => (
                 <LandingPage
                   {...props}
-                  user={account}
+                />
+              )}
+            />
+            <Route
+              path="/portfolio/software"
+              exact
+              render={(props) => (
+                <SoftwareExperiencePage
+                  {...props}
+                />
+              )}
+            />
+            <Route
+              path="/portfolio/hardware"
+              exact
+              render={(props) => (
+                <HardwareExperiencePage
+                  {...props}
+                />
+              )}
+            />
+            <Route
+              path="/portfolio/other"
+              exact
+              render={(props) => (
+                <OtherProjectsPage
+                  {...props}
                 />
               )}
             />
