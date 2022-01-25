@@ -1,74 +1,154 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 // MUI
 import { makeStyles } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
-import Card from '@material-ui/core/Card';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-// Icons
-import DocumentIcon from '@material-ui/icons/Description';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Collapse from '@material-ui/core/Collapse';
 // Custom
 import TLDR from '../components/TLDR';
-import ResumeTimeline from '../components/ResumeTimeline';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
+    alignItems: 'center',
   },
-  accordion: {
-    backgroundColor: theme.palette.background.default,
+  buttonRow: {
+    display: 'flex',
+    flexDirection: 'row',
   },
-  workExp: {
-    '& .MuiAccordionSummary-content': {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    '& .MuiAccordionSummary-content.Mui-expanded': {
-      /* this is so the title text doesnt inherit
-        unwanted margin when expanded */
-      margin: '12px 0px',
-    },
-  },
-  workExpTitle: {
-    marginLeft: theme.spacing(1),
-    padding: '0px',
-  },
-  resumeList: {
-    flexDirection: 'column',
-    padding: '0px',
+  button: {
+    maxWidth: theme.spacing(15),
+    marginRight: theme.spacing(1),
   },
 }));
 
 const LandingPage = () => {
   const classes = useStyles();
-  const [resumeExpand, setResumeExpand] = useState(false);
-  const handleResumeExpand = () => setResumeExpand(!resumeExpand);
+  const history = useHistory();
+  // Object of Collapse State
+  const [experienceExpand, setExperienceExpand] = useState(
+    history?.location?.state !== undefined
+    // use history location state if exists
+      ? history.location.state
+      : {
+        software: false,
+        hardware: false,
+        other: false,
+      });
+  /**
+   * Handle Experience Expand
+   * @fires setExperienceExpand
+   * @param {String} exp experience collapse to modify
+   * @param {Boolean} val open or nah
+   */
+  const handleExperienceExpand = (exp, val) => {
+    setExperienceExpand({
+      ...experienceExpand,
+      [exp]: val,
+    });
+  };
+  const handleSoftwarePageClick = () => history.push(`${process.env.REACT_APP_HOME_URL}/software`);
+  const handleHardwarePageClick = () => history.push(`${process.env.REACT_APP_HOME_URL}/hardware`);
+  const handleOtherPageClick = () => history.push(`${process.env.REACT_APP_HOME_URL}/other`);
   return (
     <div className={classes.root}>
-      {/* <TLDR /> */}
-      <Accordion
-        component={Card}
-        expanded={resumeExpand}
-        className={classes.accordion}
-        id="workExp"
-      >
-        <AccordionSummary
-          onClick={() => handleResumeExpand()}
-          className={classes.workExp}
+      <div className={classes.buttonRow}>
+        <Button
+          onClick={() => handleExperienceExpand('software', !experienceExpand.software)}
+          variant="outlined"
+          color="primary"
+          className={classes.button}
         >
-          <DocumentIcon />
-          <Typography className={classes.workExpTitle}>Work Experience</Typography>
-        </AccordionSummary>
-        <AccordionDetails className={classes.resumeList}>
-          <ResumeTimeline
-            handleClose={handleResumeExpand}
-          />          
-        </AccordionDetails>
-      </Accordion>
+          Software
+        </Button>
+        <Button
+          onClick={() => handleExperienceExpand('hardware', !experienceExpand.hardware)}
+          variant="outlined"
+          color="primary"
+          className={classes.button}
+        >
+          Hardware
+        </Button>
+        <Button
+          onClick={() => handleExperienceExpand('other', !experienceExpand.other)}
+          variant="outlined"
+          color="primary"
+          className={classes.button}
+        >
+          Other
+        </Button>
+      </div>
+      {/* <TLDR /> */}
+      <Collapse
+        in={experienceExpand?.software}
+        timeout="auto"
+        unmountOnExit
+        className={classes.collapse}
+      >
+        <CardContent>
+          <Typography>
+            Software
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button
+            size="small"
+            color="primary"
+            onClick={handleSoftwarePageClick}
+          >
+            Learn More
+          </Button>
+        </CardActions>
+      </Collapse>
+      <Collapse
+        in={experienceExpand?.hardware}
+        timeout="auto"
+        unmountOnExit
+        className={classes.collapse}
+      >
+        <CardContent>
+          <Typography>
+            Hardware
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button
+            size="small"
+            color="primary"
+            onClick={handleHardwarePageClick}
+          >
+            Learn More
+          </Button>
+        </CardActions>
+      </Collapse>
+      <Collapse
+        in={experienceExpand?.other}
+        timeout="auto"
+        unmountOnExit
+        className={classes.collapse}
+      >
+        <CardContent>
+          <Typography>
+            Other Fun Projects
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button
+            size="small"
+            color="primary"
+            onClick={handleOtherPageClick}
+          >
+            Learn More
+          </Button>
+        </CardActions>
+      </Collapse>
     </div>
   );
 }
