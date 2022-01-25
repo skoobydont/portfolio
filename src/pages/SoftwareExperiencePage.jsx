@@ -1,9 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router';
-// MUI
-import { makeStyles } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import makeStyles from '@mui/styles/makeStyles';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 const useStyles = makeStyles((theme) => ({
   root: {

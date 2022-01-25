@@ -13,9 +13,6 @@ import LandingPage from './pages/LandingPage';
 import SoftwareExperiencePage from './pages/SoftwareExperiencePage';
 import HardwareExperiencePage from './pages/HardwareExperiencePage';
 import OtherProjectsPage from './pages/OtherProjectsPage';
-import ProductPage from './pages/ProductPage';
-import ProfilePage from './pages/ProfilePage';
-import AccountPage from './pages/AccountPage';
 
 const App = () => {
   return (

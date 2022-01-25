@@ -1,9 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router';
-// MUI
-import { makeStyles } from '@material-ui/core';
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
+import makeStyles from '@mui/styles/makeStyles';
+import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
 
 const useStyles = makeStyles((theme) => ({
   bar: {

@@ -1,14 +1,14 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 // MUI
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import { makeStyles } from '@material-ui/core';
-import Tooltip from '@material-ui/core/Tooltip';
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import makeStyles from '@mui/styles/makeStyles';
+import Tooltip from '@mui/material/Tooltip';
 // Icons
-import HomeIcon from '@material-ui/icons/Home';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import GitHubIcon from '@material-ui/icons/GitHub';
+import HomeIcon from '@mui/icons-material/Home';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const useStyles = makeStyles((theme) => ({
   root: {

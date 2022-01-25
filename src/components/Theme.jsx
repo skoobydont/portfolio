@@ -1,7 +1,11 @@
 import React from 'react';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import CssBaseline from "@material-ui/core/CssBaseline";
+import {
+  createTheme,
+  ThemeProvider,
+  StyledEngineProvider,
+} from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import CssBaseline from "@mui/material/CssBaseline";
 
 
 const MainTheme = ({ children }) => {
@@ -9,15 +13,17 @@ const MainTheme = ({ children }) => {
   
   const theme = createTheme({
     palette: {
-      type: darkMode ? 'dark' : 'light',
+      mode: darkMode ? 'dark' : 'light',
     }
   });
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      {children}
-    </ThemeProvider>
-);
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        {children}
+      </ThemeProvider>
+    </StyledEngineProvider>
+  );
 }
 
 export default MainTheme;
