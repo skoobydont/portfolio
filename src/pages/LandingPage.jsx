@@ -59,11 +59,12 @@ const LandingPage = () => {
   const handleOtherPageClick = () => history.push(`${process.env.REACT_APP_HOME_URL}/other`);
   return (
     <div className={classes.root}>
+      <TLDR />
       <div className={classes.buttonRow}>
         <Button
           onClick={() => handleExperienceExpand('software', !experienceExpand.software)}
           variant="outlined"
-          color="primary"
+          color={experienceExpand?.software ? "primary" : "inherit"}
           className={classes.button}
         >
           Software
@@ -71,19 +72,19 @@ const LandingPage = () => {
         <Button
           onClick={() => handleExperienceExpand('hardware', !experienceExpand.hardware)}
           variant="outlined"
-          color="primary"
+          color={experienceExpand?.hardware ? "primary" : "inherit"}
           className={classes.button}
         >
           Hardware
         </Button>
-        <Button
+        {/* <Button
           onClick={() => handleExperienceExpand('other', !experienceExpand.other)}
           variant="outlined"
-          color="primary"
+          color={experienceExpand?.other ? "primary" : "inherit"}
           className={classes.button}
         >
           Other
-        </Button>
+        </Button> */}
       </div>
       {/* <TLDR /> */}
       <Collapse
@@ -128,7 +129,7 @@ const LandingPage = () => {
           </Button>
         </CardActions>
       </Collapse>
-      <Collapse
+      {/* <Collapse
         in={experienceExpand?.other}
         timeout="auto"
         unmountOnExit
@@ -148,7 +149,7 @@ const LandingPage = () => {
             Learn More
           </Button>
         </CardActions>
-      </Collapse>
+      </Collapse> */}
     </div>
   );
 }
