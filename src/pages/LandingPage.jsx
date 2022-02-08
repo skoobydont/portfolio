@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 // MUI
 import makeStyles from '@mui/styles/makeStyles';
 import Typography from '@mui/material/Typography';
+import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -16,16 +17,28 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(1),
     alignItems: 'center',
   },
   buttonRow: {
     display: 'flex',
     flexDirection: 'row',
+    marginBottom: theme.spacing(1),
   },
   button: {
     maxWidth: theme.spacing(15),
     marginRight: theme.spacing(1),
+  },
+  activeButton: {
+    color: theme.palette.primary.main,
+    border: `1px solid ${theme.palette.primary.main}`,
+    borderRadius: theme.spacing(1),
+    // backgroundColor: 'transparent',
+  },
+  collapse: {
+    width: '-webkit-fill-available',
+    maxWidth: '85%',
+    margin: theme.spacing(1),
+    marginTop: 0,
   },
 }));
 
@@ -61,22 +74,22 @@ const LandingPage = () => {
     <div className={classes.root}>
       <TLDR />
       <div className={classes.buttonRow}>
-        <Button
+        <Card
+          component={Button}
           onClick={() => handleExperienceExpand('software', !experienceExpand.software)}
           variant="outlined"
-          color={experienceExpand?.software ? "primary" : "inherit"}
-          className={classes.button}
+          className={`${classes.button} ${experienceExpand?.software ? classes.activeButton : ''}`}
         >
           Software
-        </Button>
-        <Button
+        </Card>
+        <Card
+          component={Button}
           onClick={() => handleExperienceExpand('hardware', !experienceExpand.hardware)}
           variant="outlined"
-          color={experienceExpand?.hardware ? "primary" : "inherit"}
-          className={classes.button}
+          className={`${classes.button} ${experienceExpand?.hardware ? classes.activeButton : ''}`}
         >
           Hardware
-        </Button>
+        </Card>
         {/* <Button
           onClick={() => handleExperienceExpand('other', !experienceExpand.other)}
           variant="outlined"
@@ -89,6 +102,7 @@ const LandingPage = () => {
       {/* <TLDR /> */}
       <Collapse
         in={experienceExpand?.software}
+        component={Card}
         timeout="auto"
         unmountOnExit
         className={classes.collapse}
@@ -110,6 +124,7 @@ const LandingPage = () => {
       </Collapse>
       <Collapse
         in={experienceExpand?.hardware}
+        component={Card}
         timeout="auto"
         unmountOnExit
         className={classes.collapse}
@@ -152,5 +167,6 @@ const LandingPage = () => {
       </Collapse> */}
     </div>
   );
-}
+};
+
 export default LandingPage;
