@@ -90,16 +90,16 @@ const LandingPage = () => {
         >
           Hardware
         </Card>
-        {/* <Button
+        <Button
           onClick={() => handleExperienceExpand('other', !experienceExpand.other)}
           variant="outlined"
           color={experienceExpand?.other ? "primary" : "inherit"}
           className={classes.button}
         >
           Other
-        </Button> */}
+        </Button>
       </div>
-      {/* <TLDR /> */}
+      {/* Corresponding collapse sections: Software, Hardware, Other */}
       <Collapse
         in={experienceExpand?.software}
         component={Card}
@@ -144,7 +144,7 @@ const LandingPage = () => {
           </Button>
         </CardActions>
       </Collapse>
-      {/* <Collapse
+      <Collapse
         in={experienceExpand?.other}
         timeout="auto"
         unmountOnExit
@@ -164,7 +164,7 @@ const LandingPage = () => {
             Learn More
           </Button>
         </CardActions>
-      </Collapse> */}
+      </Collapse>
     </div>
   );
 };

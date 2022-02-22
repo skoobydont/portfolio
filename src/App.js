@@ -6,9 +6,11 @@ import {
 } from 'react-router-dom';
 
 import './App.css';
+// Custom
 import MainTheme from './components/Theme';
 import Nav from './components/NavComponent';
 import Footer from './components/FooterComponent';
+// Pages
 import LandingPage from './pages/LandingPage';
 import SoftwareExperiencePage from './pages/SoftwareExperiencePage';
 import HardwareExperiencePage from './pages/HardwareExperiencePage';

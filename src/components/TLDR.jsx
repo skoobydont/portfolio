@@ -5,6 +5,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
+    maxWidth: '75%',
   },
 }));
 /**
@@ -18,7 +19,8 @@ const TLDR = () => {
       {/* TODO: more thorough about me stuff after the tldr */}
       <Typography>Welcome to my portfolio website!</Typography>
       <Typography sx={{ mt: 1 }}>
-        Built with React.js, MUI, &amp; deployed to GitHub Pages.
+        I have recently earned my CompTIA Security+ certification and am actively looking to join a team
+        in need of a security-focused full-stack developer / analyst.
       </Typography>
       <Typography sx={{ mt: 1, mb: 1 }}>
         Check out some of the projects I have worked on during my IT journey:
