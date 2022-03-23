@@ -45,7 +45,7 @@ const Footer = () => {
     return null;
   }
   return (
-    <BottomNavigation className={classes.root}>
+    <BottomNavigation className={classes.root} data-testid="footer">
       <BottomNavigationAction
         icon={(
           <Tooltip title="Home">
@@ -55,6 +55,7 @@ const Footer = () => {
         className={classes.icon}
         onClick={handleHomeRedirect}
         id="Home"
+        data-testid="Home"
       />
       <BottomNavigationAction
         icon={(
@@ -65,6 +66,7 @@ const Footer = () => {
         className={classes.icon}
         onClick={() => handleOpenTab(process.env.REACT_APP_LINKED_IN_URL)}
         id="LinkedIn"
+        data-testid="LinkedIn"
       />
       <BottomNavigationAction
         icon={(
@@ -75,6 +77,7 @@ const Footer = () => {
         className={classes.icon}
         onClick={() => handleOpenTab(process.env.REACT_APP_GITHUB_URL)}
         id="GitHub"
+        data-testid="GitHub"
       />
     </BottomNavigation>
   );
