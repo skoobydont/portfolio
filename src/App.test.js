@@ -10,13 +10,10 @@ describe('main app file tests', () => {
     render(<App />);
   });
 
-  test('renders nav component & button', () => {
+  test('renders nav component', () => {
     // Ensure nav bar component renders
     const navComponent = screen.getByTestId(/nav/i);
     expect(navComponent).toBeInTheDocument();
-    // Ensure button renders
-    const navButton = screen.getByText(/skubak.aj/i);
-    expect(navButton).toBeInTheDocument();
   });
 
   test('renders content between header & footer', () => {
