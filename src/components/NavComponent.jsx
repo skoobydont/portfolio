@@ -28,7 +28,11 @@ const Nav = () => {
   // redirect handlers
   const handleHomeRedirect = () => history.push(process.env.REACT_APP_HOME_URL);
   return (
-    <AppBar position="static" className={classes.bar}>
+    <AppBar
+      position="static"
+      className={classes.bar}
+      data-testid="Nav"
+    >
       <Button
         variant="text"
         onClick={handleHomeRedirect}
