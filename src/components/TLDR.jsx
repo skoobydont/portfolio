@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 const TLDR = () => {
   const classes = useStyles();
   return (
-    <div id="tldr" className={classes.root}>
+    <div id="tldr" className={classes.root} data-testid="tldr">
       {/* TODO: more thorough about me stuff after the tldr */}
       <Typography>Welcome to my portfolio website!</Typography>
       <Typography sx={{ mt: 1 }}>
