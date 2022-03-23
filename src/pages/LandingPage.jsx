@@ -67,9 +67,11 @@ const LandingPage = () => {
       [exp]: val,
     });
   };
+  // Handle Page Clicks
   const handleSoftwarePageClick = () => history.push(`${process.env.REACT_APP_HOME_URL}/software`);
   const handleHardwarePageClick = () => history.push(`${process.env.REACT_APP_HOME_URL}/hardware`);
   const handleOtherPageClick = () => history.push(`${process.env.REACT_APP_HOME_URL}/other`);
+  
   return (
     <div className={classes.root}>
       <TLDR />
