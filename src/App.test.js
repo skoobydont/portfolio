@@ -29,20 +29,7 @@ describe('main app file tests', () => {
     
     // Ensure at least some buttons render in footer
     const allButtons = screen.getAllByRole('button');
-    expect(allButtons.length).toBeGreaterThan(0);
-    
-    /* Check for each button
-      (cant use regex since icon tooltip inherits test id + 'icon'
-      so must be specific)
-    */
-    const homeButton = screen.getByTestId('Home');
-    expect(homeButton).toBeInTheDocument();
-    
-    const linkedinButton = screen.getByTestId('LinkedIn');
-    expect(linkedinButton).toBeInTheDocument();
-
-    const githubButton = screen.getByTestId('GitHub');
-    expect(githubButton).toBeInTheDocument();
+    expect(allButtons.length).toBeGreaterThan(0);    
   });
   
 });
