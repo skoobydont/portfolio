@@ -73,9 +73,9 @@ const LandingPage = () => {
   const handleOtherPageClick = () => history.push(`${process.env.REACT_APP_HOME_URL}/other`);
   
   return (
-    <div className={classes.root}>
+    <div className={classes.root} data-testid="landingPage">
       <TLDR />
-      <div className={classes.buttonRow}>
+      <div className={classes.buttonRow} data-testid="buttonRow">
         <Card
           component={Button}
           onClick={() => handleExperienceExpand('software', !experienceExpand.software)}
