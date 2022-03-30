@@ -9,8 +9,12 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Collapse from '@mui/material/Collapse';
+import CardActionArea from '@mui/material/CardActionArea';
 // Custom
 import TLDR from '../components/TLDR';
+// Images
+import hardwarePic from '../img/hardware-tile.png';
+import softwarePic from '../img/sample-code.png';
 // Declare Styles
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,12 +25,14 @@ const useStyles = makeStyles((theme) => ({
   },
   buttonRow: {
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
+    marginTop: theme.spacing(1),
+  },
+  expCard: {
     marginBottom: theme.spacing(1),
   },
-  button: {
-    maxWidth: theme.spacing(15),
-    marginRight: theme.spacing(1),
+  imgBlur: {
+    filter: 'blur(2px)',
   },
 }));
 
@@ -36,36 +42,51 @@ const LandingPage = () => {
   // Handle Page Clicks
   const handleSoftwarePageClick = () => history.push(`${process.env.REACT_APP_HOME_URL}/software`);
   const handleHardwarePageClick = () => history.push(`${process.env.REACT_APP_HOME_URL}/hardware`);
-  const handleOtherPageClick = () => history.push(`${process.env.REACT_APP_HOME_URL}/other`);
+  // const handleOtherPageClick = () => history.push(`${process.env.REACT_APP_HOME_URL}/other`);
   
   return (
     <div className={classes.root}>
       <TLDR />
       <div className={classes.buttonRow}>
         <Card
-          component={Button}
           onClick={() => handleSoftwarePageClick()}
-          variant="outlined"
-          className={classes.button}
+          className={classes.expCard}
         >
-          Software
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              image={softwarePic}
+              alt="Software"
+              className={classes.imgBlur}
+            />
+            <Typography>
+              Software
+            </Typography>
+          </CardActionArea>
         </Card>
         <Card
-          component={Button}
           onClick={() => handleHardwarePageClick()}
-          variant="outlined"
-          className={classes.button}
+          className={classes.expCard}
         >
-          Hardware
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              image={hardwarePic}
+              alt="Hardware"
+              className={classes.imgBlur}
+            />
+            <Typography>
+              Hardware
+            </Typography>
+          </CardActionArea>
         </Card>
-        <Card
-          component={Button}
+        {/* TODO: use this or remove. idk if we need more than the above two */}
+        {/* <Card
           onClick={() => handleOtherPageClick()}
-          variant="outlined"
-          className={classes.button}
+          className={classes.expCard}
         >
           Other
-        </Card>
+        </Card> */}
       </div>
     </div>
   );
