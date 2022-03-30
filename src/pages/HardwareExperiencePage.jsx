@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 import makeStyles from '@mui/styles/makeStyles';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import BackIcon from '@mui/icons-material/ArrowBack';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,28 +26,18 @@ const HardwareExperiencePage = () => {
   const history = useHistory();
   /**
    * Handle Go Back to /porfolio
-   * @fires history.push
-   * @returns {null}
+   * @fires history.goBack
    */
-  const handleGoBack = () => {
-    history.push({
-      pathname: '/portfolio',
-      state: {
-        ...history.location.state,
-        hardware: true,
-      },
-    });
-    return null;
-  };
+  const handleGoBack = () => history.goBack();
   return (
     <div className={classes.root}>
       <div className={classes.header}>
         <Button
           onClick={() => handleGoBack()}
-          variant="contained"
+          variant="outlined"
           className={classes.button}
         >
-          &#60;
+          <BackIcon />
         </Button>
         <Typography>
           Learn More About Hardware Experience on this page        
