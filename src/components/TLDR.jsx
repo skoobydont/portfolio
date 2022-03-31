@@ -6,6 +6,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     maxWidth: '75%',
+    marginTop: theme.spacing(1),
   },
 }));
 /**
@@ -17,7 +18,7 @@ const TLDR = () => {
   return (
     <div id="tldr" className={classes.root} data-testid="tldr">
       {/* TODO: more thorough about me stuff after the tldr */}
-      <Typography>Welcome to my portfolio website!</Typography>
+      <Typography variant="h4">Welcome to my portfolio website!</Typography>
       <Typography sx={{ mt: 1 }}>
         I have recently earned my CompTIA Security+ certification and am actively looking to join a team
         in need of a security-focused full-stack developer / analyst.
