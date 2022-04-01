@@ -3,11 +3,16 @@ import {
   render,
 } from '@testing-library/react';
 import TLDR from '../components/TLDR';
+import Theme from '../components/Theme';
 
 describe('tldr tests', () => {
   // Setup
   beforeEach(() => {
-    render(<TLDR />);
+    render(
+      <Theme>
+        <TLDR />
+      </Theme>
+    );
   });
 
   test('renders tldr component', () => {
