@@ -1,6 +1,7 @@
 import {
   screen,
   render,
+  cleanup,
 } from '@testing-library/react';
 import FooterComponent from '../components/FooterComponent';
 import Theme from '../components/Theme';
@@ -16,6 +17,11 @@ describe('footer component tests', () => {
         <FooterComponent />
       </Theme>
     );
+  });
+
+  // Cleanup
+  afterEach(() => {
+    cleanup();
   });
 
   test('footer component renders', () => {

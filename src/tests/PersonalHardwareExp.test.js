@@ -1,6 +1,7 @@
 import {
   render,
   screen,
+  cleanup,
 } from '@testing-library/react';
 import PersonalHardwareExp from '../components/personal/PersonalHardwareExp';
 import Theme from '../components/Theme';
@@ -13,6 +14,10 @@ describe('personal hardware experience tests', () => {
         <PersonalHardwareExp />
       </Theme>
     );
+  });
+  // Cleanup
+  afterEach(() => {
+    cleanup();
   });
   // Ensure parent div renders
   test('personal hardware experience parent div renders', () => {

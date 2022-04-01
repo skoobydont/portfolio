@@ -1,4 +1,5 @@
 import {
+  cleanup,
   render,
   screen,
 } from '@testing-library/react';
@@ -8,6 +9,10 @@ describe('main app file tests', () => {
   // Reusable logic for each test case
   beforeEach(() => {
     render(<App />);
+  });
+  // Cleanup
+  afterEach(() => {
+    cleanup();
   });
 
   test('renders nav component', () => {

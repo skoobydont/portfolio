@@ -1,6 +1,7 @@
 import {
   render,
   screen,
+  cleanup,
 } from '@testing-library/react';
 import ProfessionalSoftwareExp from '../components/professional/ProfessionalSoftwareExp';
 import Theme from '../components/Theme';
@@ -13,6 +14,10 @@ describe('professional software experience tests', () => {
         <ProfessionalSoftwareExp />
       </Theme>
     );
+  });
+  // Cleanup
+  afterEach(() => {
+    cleanup();
   });
   // Ensure parent div renders
   test('professional software experience parent div renders', () => {

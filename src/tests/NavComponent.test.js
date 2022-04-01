@@ -1,6 +1,7 @@
 import {
   render,
   screen,
+  cleanup,
 } from '@testing-library/react';
 import NavComponent from '../components/NavComponent';
 import Theme from '../components/Theme';
@@ -13,6 +14,10 @@ describe('nav component tests', () => {
         <NavComponent />
       </Theme>
     );
+  });
+  // Cleanup
+  afterEach(() => {
+    cleanup();
   });
 
   test('nav component renders', () => {

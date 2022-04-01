@@ -1,6 +1,7 @@
 import {
   screen,
   render,
+  cleanup,
 } from '@testing-library/react';
 import TLDR from '../components/TLDR';
 import Theme from '../components/Theme';
@@ -13,6 +14,10 @@ describe('tldr tests', () => {
         <TLDR />
       </Theme>
     );
+  });
+  // Cleanup
+  afterEach(() => {
+    cleanup();
   });
 
   test('renders tldr component', () => {
