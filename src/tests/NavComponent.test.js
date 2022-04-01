@@ -3,11 +3,16 @@ import {
   screen,
 } from '@testing-library/react';
 import NavComponent from '../components/NavComponent';
+import Theme from '../components/Theme';
 
 describe('nav component tests', () => {
   // Setup
   beforeEach(() => {
-    render(<NavComponent />);
+    render(
+      <Theme>
+        <NavComponent />
+      </Theme>
+    );
   });
 
   test('nav component renders', () => {
