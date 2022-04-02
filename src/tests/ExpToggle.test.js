@@ -10,11 +10,14 @@ import Theme from '../components/Theme';
 describe('exp toggle component tests', () => {
   // Setup
   let exp = 'professional';
-  const setExp = (newExp) => {
-    exp = newExp;
-    return null;
-  };
-  beforeEach(() => {
+  const setExp = (newExp) => {};
+
+  afterEach(() => {
+    cleanup();
+  });
+
+  test('parent div renders', () => {
+    // Cannot put into beforeEach since last test needs access to rerenderer
     render(
       <Theme>
         <ExpToggle
@@ -23,18 +26,20 @@ describe('exp toggle component tests', () => {
         />
       </Theme>
     );
-  });
-
-  afterEach(() => {
-    cleanup();
-  });
-
-  test('parent div renders', () => {
     const expToggle = screen.getByTestId(/exptoggle/i);
     expect(expToggle).toBeInTheDocument();
   });
 
   test('button renders with text inside', () => {
+    // Cannot put into beforeEach since last test needs access to rerenderer
+    render(
+      <Theme>
+        <ExpToggle
+          exp={exp}
+          setExp={setExp}
+        />
+      </Theme>
+    );
     const toggleButton = screen.getByRole('button');
     expect(toggleButton).toBeInTheDocument();
 
@@ -43,22 +48,36 @@ describe('exp toggle component tests', () => {
   });
 
   test('text updates when button clicked', () => {
+    // Cannot put into beforeEach since last test needs access to rerenderer
+    const {
+      rerender
+    } = render(
+      <Theme>
+        <ExpToggle
+          exp={exp}
+          setExp={setExp}
+        />
+      </Theme>
+    );
     // Default should show professional
     const professionalText = screen.getByText(/professional/i);
-    console.log('the prof text classList contains active?');
-    expect(professionalText.classList.contains(/active/i)).toBeTruthy();
+    expect(professionalText.className.includes('active')).toBeTruthy();
     // Get Button & click
     const toggleButton = screen.getByRole('button');
-
     fireEvent.click(toggleButton);
-    
-    console.log('after click');
+    // Rerender
+    rerender(
+      <Theme>
+        <ExpToggle
+          exp={"personal"}
+          setExp={setExp}
+        />
+      </Theme>
+    );    
     // Now personal text should be active
     const personalText = screen.getByText(/personal/i);
-    expect(personalText.classList.contains(/active/i)).toBeTruthy();
+    expect(personalText.className.includes('active')).toBeTruthy();
     // Ensure professional is not active
-    expect(professionalText.classList.contains(/active/i)).toBeFalsy();
-    console.log('the personal text');
-    console.log(personalText);
+    expect(professionalText.className.includes('active')).toBeFalsy();
   });
 });
