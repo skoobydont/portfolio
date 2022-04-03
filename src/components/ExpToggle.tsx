@@ -52,8 +52,8 @@ const ExpToggle = (props: ExpToggleProps) => {
   return (
     <Card data-testid="expToggle" className={classes.root}>
       <Tabs variant="fullWidth" value={exp} onChange={handleChange}>
-        <Tab label="Professional" value="professional" />
-        <Tab label="Personal" value="personal" />
+        <Tab label="Professional" value="professional" data-testid="professionalExp"/>
+        <Tab label="Personal" value="personal" data-testid="personalExp"/>
       </Tabs>
       {exp === 'professional'
         ? professionalComponent
