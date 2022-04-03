@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,7 +15,8 @@ import LandingPage from './pages/LandingPage';
 import SoftwareExperiencePage from './pages/SoftwareExperiencePage';
 import HardwareExperiencePage from './pages/HardwareExperiencePage';
 
-const App = () => {
+
+const App = (): JSX.Element => {
   return (
     <MainTheme>
       <Router>
