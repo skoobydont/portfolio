@@ -14,7 +14,6 @@ import Footer from './components/FooterComponent';
 import LandingPage from './pages/LandingPage';
 import SoftwareExperiencePage from './pages/SoftwareExperiencePage';
 import HardwareExperiencePage from './pages/HardwareExperiencePage';
-import OtherProjectsPage from './pages/OtherProjectsPage';
 
 const App = () => {
   return (
@@ -46,15 +45,6 @@ const App = () => {
               exact
               render={(props) => (
                 <HardwareExperiencePage
-                  {...props}
-                />
-              )}
-            />
-            <Route
-              path="/portfolio/other"
-              exact
-              render={(props) => (
-                <OtherProjectsPage
                   {...props}
                 />
               )}

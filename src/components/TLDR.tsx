@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
 import Typography from '@mui/material/Typography';
+// Declare Styles
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
