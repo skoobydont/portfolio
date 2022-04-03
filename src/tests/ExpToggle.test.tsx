@@ -49,10 +49,10 @@ describe('exp toggle component tests', () => {
         />
       </Theme>
     );
-    const toggleButton = screen.getByRole('button');
-    expect(toggleButton).toBeInTheDocument();
+    const toggleTabList = screen.getByRole('tablist');
+    expect(toggleTabList).toBeInTheDocument();
 
-    const textWithinBtn = toggleButton.children;
+    const textWithinBtn = toggleTabList.children;
     expect(textWithinBtn.length).toBeGreaterThan(0);
   });
 
@@ -71,11 +71,10 @@ describe('exp toggle component tests', () => {
       </Theme>
     );
     // Default should show professional
-    const professionalText = screen.getByText(/professional/i);
-    expect(professionalText.className.includes('active')).toBeTruthy();
-    // Get Button & click
-    const toggleButton = screen.getByRole('button');
-    fireEvent.click(toggleButton);
+    const toggleTabList = screen.getByRole('tablist');
+    expect(toggleTabList.children[0].className.includes('Mui-selected')).toBeTruthy();
+    // Get Tablist & click second element
+    fireEvent.click(toggleTabList.children[toggleTabList.children.length - 1]);
     // Rerender
     rerender(
       <Theme>
@@ -88,9 +87,10 @@ describe('exp toggle component tests', () => {
       </Theme>
     );    
     // Now personal text should be active
-    const personalText = screen.getByText(/personal/i);
-    expect(personalText.className.includes('active')).toBeTruthy();
+    const personalText = screen.getByTestId(/personalExp/i);
+    expect(personalText.className.includes('Mui-selected')).toBeTruthy();
     // Ensure professional is not active
-    expect(professionalText.className.includes('active')).toBeFalsy();
+    const professionalText = screen.getByTestId(/professionalExp/i);
+    expect(professionalText.className.includes('Mui-selected')).toBeFalsy();
   });
 });
