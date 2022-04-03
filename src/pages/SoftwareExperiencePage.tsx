@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 // MUI
 import makeStyles from '@mui/styles/makeStyles';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import BackIcon from '@mui/icons-material/ArrowBack';
+// Custom
+import ExpToggle from '../components/ExpToggle';
 // Declare Styles
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 const SoftwareExperiencePage = () => {
   const classes = useStyles();
   const history = useHistory();
+  const [exp, setExp] = useState('professional');
   /**
    * Handle Go Back to /porfolio
    * @fires history.goBack
@@ -45,6 +48,7 @@ const SoftwareExperiencePage = () => {
           Learn More About Software Experience on this page
         </Typography>
       </div>
+      <ExpToggle exp={exp} setExp={setExp} />
     </div>
   );
 };

@@ -4,10 +4,25 @@ import PropTypes from 'prop-types';
 import makeStyles from '@mui/styles/makeStyles';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 // Declare Styles
 const useStyles = makeStyles((theme) => ({
+  root: {
+    // display: 'flex',
+    // flexDirection: 'row',
+    textAlign: 'center',
+  },
+  button: {
+    // display: 'flex',
+    // flexDirection: 'column',
+    // alignContent: 'baseline',
+    // textAlign: 'left',
+  },
   active: {
-    color: theme.palette.secondary.main,
+    color: theme.palette.primary.main,
+    fontWeight: 'bold',
   },
 }));
 /**
@@ -30,19 +45,32 @@ const ExpToggle = (props: { exp: string, setExp: Function }) => {
    * @param {string} newExp new value to set exp state
    * @returns {Function}
    */
-  const handleExpToggle = (newExp: string) => setExp(newExp);
-
+  // const handleExpToggle = (newExp: string) => setExp(newExp);
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setExp(newValue);
+  }
+  console.log('exp toggle exp: ', exp);
+  console.log('exp === professional? ', exp === 'professional');
   return (
-    <div data-testid="expToggle">
-      <Button
-        onClick={() => handleExpToggle(
-          exp === 'professional' ? 'personal' : 'professional'
-        )}
+    <div data-testid="expToggle" className={classes.root}>
+      <Tabs value={exp} onChange={handleChange}>
+        <Tab label="Professional" value="professional" />
+        <Tab label="Personal" value="personal" />
+      </Tabs>
+      {/* <Button
+        onClick={() => handleExpToggle('professional')}
+        variant="outlined"
+        className={`${classes.button} ${exp === 'professional' ? classes.active : ''}`}
       >
-        <Typography className={exp === 'professional' ? classes.active : ''}>Professional</Typography>
-        <Typography>/</Typography>
-        <Typography className={exp === 'personal' ? classes.active : ''}>Personal</Typography>
+        Professional
       </Button>
+      <Button
+        onClick={() => handleExpToggle('personal')}
+        variant="outlined"
+        className={`${classes.button} ${exp === 'personal' ? classes.active : ''}`}
+      >
+        Personal
+      </Button> */}
     </div>
   );
 };
