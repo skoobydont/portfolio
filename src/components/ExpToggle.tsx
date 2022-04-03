@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import makeStyles from '@mui/styles/makeStyles';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-
+// Declare Styles
 const useStyles = makeStyles((theme) => ({
   active: {
     color: theme.palette.secondary.main,
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
  * @param {Object} props 
  * @returns {Component} Component to toggle exp between personal / professional
  */
-const ExpToggle = (props) => {
+const ExpToggle = (props: { exp: string, setExp: Function }) => {
   /**
    * Destructure Props:
    *  exp state value & set method
@@ -30,7 +30,7 @@ const ExpToggle = (props) => {
    * @param {string} newExp new value to set exp state
    * @returns {Function}
    */
-  const handleExpToggle = (newExp) => setExp(newExp);
+  const handleExpToggle = (newExp: string) => setExp(newExp);
 
   return (
     <div data-testid="expToggle">
