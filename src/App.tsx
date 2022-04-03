@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,7 +16,7 @@ import SoftwareExperiencePage from './pages/SoftwareExperiencePage';
 import HardwareExperiencePage from './pages/HardwareExperiencePage';
 
 
-const App = (): JSX.Element => {
+const App = () => {
   return (
     <MainTheme>
       <Router>
