@@ -39,9 +39,9 @@ const Footer = () => {
    * @param {String} link the url you want to be opened in a new tab
    * @returns {null}
    */
-  const handleOpenTab = (link) => {
+  const handleOpenTab = (link: string) => {
     const win = window.open(link, "_blank");
-    win.focus();
+    win?.focus();
     return null;
   }
   return (
