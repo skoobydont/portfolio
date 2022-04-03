@@ -4,14 +4,15 @@ import {
   cleanup,
   fireEvent,
 } from '@testing-library/react';
+import React from 'react';
 import ExpToggle from '../components/ExpToggle';
 import Theme from '../components/Theme';
 
 describe('exp toggle component tests', () => {
   // Setup
   let exp = 'professional';
-  const setExp = (newExp) => {};
-
+  const setExp = (newExp: {}) => {};
+  // Clean up
   afterEach(() => {
     cleanup();
   });

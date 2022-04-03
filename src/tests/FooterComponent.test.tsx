@@ -3,6 +3,7 @@ import {
   render,
   cleanup,
 } from '@testing-library/react';
+import React from 'react';
 import FooterComponent from '../components/FooterComponent';
 import Theme from '../components/Theme';
 

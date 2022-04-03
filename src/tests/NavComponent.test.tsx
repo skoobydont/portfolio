@@ -3,6 +3,7 @@ import {
   screen,
   cleanup,
 } from '@testing-library/react';
+import React from 'react';
 import NavComponent from '../components/NavComponent';
 import Theme from '../components/Theme';
 

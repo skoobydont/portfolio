@@ -3,15 +3,16 @@ import {
   screen,
   cleanup,
 } from '@testing-library/react';
-import ProfessionalHardwareExp from '../components/professional/ProfessionalHardwareExp';
+import React from 'react';
+import PersonalHardwareExp from '../components/personal/PersonalHardwareExp';
 import Theme from '../components/Theme';
 
-describe('professional hardware experience tests', () => {
+describe('personal hardware experience tests', () => {
   // Setup
   beforeEach(() => {
     render(
       <Theme>
-        <ProfessionalHardwareExp />
+        <PersonalHardwareExp />
       </Theme>
     );
   });
@@ -20,8 +21,8 @@ describe('professional hardware experience tests', () => {
     cleanup();
   });
   // Ensure parent div renders
-  test('professional hardware experience parent div renders', () => {
-    const pHardwareExp = screen.getByTestId(/professionalhardware/i);
+  test('personal hardware experience parent div renders', () => {
+    const pHardwareExp = screen.getByTestId(/personalhardware/i);
     expect(pHardwareExp).toBeInTheDocument();
   });
 });

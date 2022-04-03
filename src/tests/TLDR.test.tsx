@@ -5,6 +5,7 @@ import {
 } from '@testing-library/react';
 import TLDR from '../components/TLDR';
 import Theme from '../components/Theme';
+import React from 'react';
 
 describe('tldr tests', () => {
   // Setup

@@ -3,15 +3,16 @@ import {
   screen,
   cleanup,
 } from '@testing-library/react';
-import ProfessionalSoftwareExp from '../components/professional/ProfessionalSoftwareExp';
+import React from 'react';
+import PersonalSoftwareExp from '../components/personal/PersonalSoftwareExp';
 import Theme from '../components/Theme';
 
-describe('professional software experience tests', () => {
+describe('personal software experience tests', () => {
   // Setup
   beforeEach(() => {
     render(
       <Theme>
-        <ProfessionalSoftwareExp />
+        <PersonalSoftwareExp />
       </Theme>
     );
   });
@@ -20,8 +21,8 @@ describe('professional software experience tests', () => {
     cleanup();
   });
   // Ensure parent div renders
-  test('professional software experience parent div renders', () => {
-    const pSoftwareExp = screen.getByTestId(/professionalsoftware/i);
+  test('personal software experience parent div renders', () => {
+    const pSoftwareExp = screen.getByTestId(/personalsoftware/i);
     expect(pSoftwareExp).toBeInTheDocument();
   });
 });
