@@ -9,6 +9,16 @@ const {
 require('chromedriver');
 // firefox driver
 require('geckodriver');
+// interface
+interface WebDriver {
+  wait: Function;
+  findElement: Function;
+  sleep: Function;
+  getCurrentUrl: Function;
+  getAllWindowHandles: Function;
+  switchTo: Function;
+  close: Function;
+}
 // vars
 const PORTFOLIO_URL = 'http://localhost:3000/portfolio';
 // 'https://skoobydont.github.io/portfolio';
@@ -21,14 +31,14 @@ const GITHUB_URL='https://github.com/skoobydont';
  * @param {String} url some funky url
  * @returns {String} replaces any encoded characters
  */
-const cleanUrl = (url) => url.replace(/%2F/g, '/').replace(/%3A/g, ':');
+const cleanUrl = (url: string) => url.replace(/%2F/g, '/').replace(/%3A/g, ':');
 /**
  * Update Test Results
  * @param {Object} currentRes current test result object
  * @param {Object} newRes the new test results
  * @returns {Object} updated test result object
  */
-const updatedTestResults = (currentRes, newRes) => {
+const updatedTestResults = (currentRes: {}, newRes: { [key: string]: string }) => {
   if (currentRes === null || newRes === null) return {};
   let res = { ...currentRes };
   if (Object.keys(newRes).length > 0) {
@@ -42,7 +52,7 @@ const updatedTestResults = (currentRes, newRes) => {
   return res;
 };
 /* Test Logic */
-const testWorkExp = async (drvr) => {
+const testWorkExp = async (drvr: WebDriver) => {
   try {
     return await drvr
       .wait(
@@ -60,7 +70,7 @@ const testWorkExp = async (drvr) => {
           workExp: Boolean(workExp),
         };
       })
-      .catch((er) => {
+      .catch((er: string | undefined) => {
         throw new Error(er);
       })
   } catch (e) {
@@ -73,7 +83,7 @@ const testWorkExp = async (drvr) => {
  * @param {Object} drvr web driver
  * @returns {Object} does TLDR render?
  */
-const testTLDR = async (drvr) => {
+const testTLDR = async (drvr: WebDriver) => {
   try {
     return await drvr
       .wait(
@@ -88,7 +98,7 @@ const testTLDR = async (drvr) => {
           tldr: tldr.includes('TLDR'),
         };
       })
-      .catch((err) => {
+      .catch((err: string | undefined) => {
         throw new Error(err);
       });
   } catch (e) {
@@ -101,7 +111,7 @@ const testTLDR = async (drvr) => {
  * @param {Object} drvr current driver
  * @returns {Object} results of each footer button
  */
-const testFooterButtons = async (drvr) => {
+const testFooterButtons = async (drvr: WebDriver) => {
   try {
     return await drvr
       .wait(
@@ -145,7 +155,7 @@ const testFooterButtons = async (drvr) => {
           gitHubButton: cleanUrl(githubUrl).includes(GITHUB_URL),
         };
       })
-      .catch((err) => {
+      .catch((err: string | undefined) => {
         throw new Error(err);
       });
   } catch (e) {
@@ -158,7 +168,7 @@ const testFooterButtons = async (drvr) => {
  * @param {Object} drvr driver obj
  * @returns {Object} results of nav text test
  */
-const testNavText = async (drvr) => {
+const testNavText = async (drvr: WebDriver) => {
   try {
     return await drvr
       .wait(
@@ -178,9 +188,8 @@ const testNavText = async (drvr) => {
           navText: navText === NAV_TEXT,
         };
       })
-      .catch((err) => {
-        console.error(err);
-        return false;
+      .catch((err: string | undefined) => {
+        throw new Error(err);
       });
   } catch (e) {
     console.error(e);
@@ -192,7 +201,7 @@ const testNavText = async (drvr) => {
  * @param {Object} drvr the driver
  * @returns {Object} if div id root is found
  */
-const testInitLoad = async (drvr) => {
+const testInitLoad = async (drvr: WebDriver) => {
   try {
     return await drvr
       .wait(
@@ -206,9 +215,8 @@ const testInitLoad = async (drvr) => {
           initLoad: Boolean(rootDiv),
         };
       })
-      .catch((err) => {
-        console.error(err);
-        return false;
+      .catch((err: string | undefined) => {
+        throw new Error(err);
       });
   } catch (e) {
     console.error(e);
@@ -224,7 +232,7 @@ const testInitLoad = async (drvr) => {
  *  (search string + "- Google Search")
  * @returns {Boolean}
  */
-const singleBrowserTest = async (browser) => {
+const singleBrowserTest = async (browser: string) => {
   const driver = await new Builder().forBrowser(browser).build();
   // get site
   await driver.get(PORTFOLIO_URL);
@@ -267,7 +275,7 @@ const multiBrowserTests = async () => {
   supportedBrowswers.forEach(
     async (sB) => {
       try {
-        const result = await singleBrowserTest(sB);
+        const result: { [key: string]: string | boolean } = await singleBrowserTest(sB);
         if (typeof result === 'object' && Object.keys(result).length > 0) {
           const failedTests = [];
           const passedTests = [];
