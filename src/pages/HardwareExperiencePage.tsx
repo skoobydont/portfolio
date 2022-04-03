@@ -1,10 +1,11 @@
 import React from 'react';
 import { useHistory } from 'react-router';
+// MUI
 import makeStyles from '@mui/styles/makeStyles';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import BackIcon from '@mui/icons-material/ArrowBack';
-
+// Declare Styles
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(1),
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SoftwareExperiencePage = () => {
+const HardwareExperiencePage = () => {
   const classes = useStyles();
   const history = useHistory();
   /**
@@ -29,6 +30,7 @@ const SoftwareExperiencePage = () => {
    * @fires history.goBack
    */
   const handleGoBack = () => history.goBack();
+  
   return (
     <div className={classes.root}>
       <div className={classes.header}>
@@ -40,11 +42,11 @@ const SoftwareExperiencePage = () => {
           <BackIcon />
         </Button>
         <Typography>
-          Learn More About Software Experience on this page
+          Learn More About Hardware Experience on this page        
         </Typography>
       </div>
     </div>
   );
 };
 
-export default SoftwareExperiencePage;
+export default HardwareExperiencePage;

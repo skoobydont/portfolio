@@ -25,28 +25,22 @@ const App = () => {
             <Route
               path="/portfolio"
               exact
-              render={(props) => (
-                <LandingPage
-                  {...props}
-                />
+              render={() => (
+                <LandingPage />
               )}
             />
             <Route
               path="/portfolio/software"
               exact
-              render={(props) => (
-                <SoftwareExperiencePage
-                  {...props}
-                />
+              render={() => (
+                <SoftwareExperiencePage />
               )}
             />
             <Route
               path="/portfolio/hardware"
               exact
-              render={(props) => (
-                <HardwareExperiencePage
-                  {...props}
-                />
+              render={() => (
+                <HardwareExperiencePage />
               )}
             />
           </Switch>      
