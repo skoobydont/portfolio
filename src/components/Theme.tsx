@@ -7,8 +7,16 @@ import {
 import useMediaQuery from '@mui/material/useMediaQuery';
 import CssBaseline from "@mui/material/CssBaseline";
 
+interface ThemeProps {
+  children: boolean |
+    React.ReactChild |
+    React.ReactFragment |
+    React.ReactPortal |
+    null |
+    undefined;
+}
 
-const MainTheme = ({ children }) => {
+const MainTheme = (props: ThemeProps) => {
   const darkMode = useMediaQuery('(prefers-color-scheme: dark)');
   
   const theme = createTheme({
@@ -18,9 +26,9 @@ const MainTheme = ({ children }) => {
   });
   return (
     <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>        
         <CssBaseline />
-        {children}
+        {props.children}
       </ThemeProvider>
     </StyledEngineProvider>
   );
