@@ -7,71 +7,58 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import Card from '@mui/material/Card';
 // Declare Styles
 const useStyles = makeStyles((theme) => ({
   root: {
-    // display: 'flex',
-    // flexDirection: 'row',
-    textAlign: 'center',
-  },
-  button: {
-    // display: 'flex',
-    // flexDirection: 'column',
-    // alignContent: 'baseline',
-    // textAlign: 'left',
-  },
-  active: {
-    color: theme.palette.primary.main,
-    fontWeight: 'bold',
+    display: 'flex',
+    flexDirection: 'column',
   },
 }));
+interface ExpToggleProps {
+  exp: string;
+  setExp: Function;
+  personalComponent: React.ReactElement;
+  professionalComponent: React.ReactElement;
+}
 /**
  * ExpToggle
  * @param {Object} props 
  * @returns {Component} Component to toggle exp between personal / professional
  */
-const ExpToggle = (props: { exp: string, setExp: Function }) => {
+const ExpToggle = (props: ExpToggleProps) => {
   /**
    * Destructure Props:
    *  exp state value & set method
+   *  + desired component to render
    */
   const {
     exp,
     setExp,
+    personalComponent,
+    professionalComponent,
   } = props;
   const classes = useStyles();
   /**
-   * Handle Exp State Toggle
+   * Handle Tab Change
+   * @param {Object} event standard event
    * @param {string} newExp new value to set exp state
-   * @returns {Function}
+   * @fires setExp with updated value
    */
-  // const handleExpToggle = (newExp: string) => setExp(newExp);
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setExp(newValue);
   }
-  console.log('exp toggle exp: ', exp);
-  console.log('exp === professional? ', exp === 'professional');
+
   return (
-    <div data-testid="expToggle" className={classes.root}>
-      <Tabs value={exp} onChange={handleChange}>
+    <Card data-testid="expToggle" className={classes.root}>
+      <Tabs variant="fullWidth" value={exp} onChange={handleChange}>
         <Tab label="Professional" value="professional" />
         <Tab label="Personal" value="personal" />
       </Tabs>
-      {/* <Button
-        onClick={() => handleExpToggle('professional')}
-        variant="outlined"
-        className={`${classes.button} ${exp === 'professional' ? classes.active : ''}`}
-      >
-        Professional
-      </Button>
-      <Button
-        onClick={() => handleExpToggle('personal')}
-        variant="outlined"
-        className={`${classes.button} ${exp === 'personal' ? classes.active : ''}`}
-      >
-        Personal
-      </Button> */}
-    </div>
+      {exp === 'professional'
+        ? professionalComponent
+        : personalComponent}
+    </Card>
   );
 };
 

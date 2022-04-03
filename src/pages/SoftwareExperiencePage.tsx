@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router';
+// import { useHistory } from 'react-router';
 // MUI
 import makeStyles from '@mui/styles/makeStyles';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import BackIcon from '@mui/icons-material/ArrowBack';
+// import BackIcon from '@mui/icons-material/ArrowBack';
 // Custom
 import ExpToggle from '../components/ExpToggle';
+import ProfessionalExp from '../components/professional/ProfessionalSoftwareExp';
+import PersonalExp from '../components/personal/PersonalSoftwareExp';
 // Declare Styles
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(1),
     display: 'flex',
     flexDirection: 'column',
+    padding: theme.spacing(1),
   },
   header: {
     display: 'flex',
@@ -26,17 +26,17 @@ const useStyles = makeStyles((theme) => ({
 
 const SoftwareExperiencePage = () => {
   const classes = useStyles();
-  const history = useHistory();
+  // const history = useHistory();
   const [exp, setExp] = useState('professional');
   /**
    * Handle Go Back to /porfolio
    * @fires history.goBack
    */
-  const handleGoBack = () => history.goBack();
+  // const handleGoBack = () => history.goBack();
   
   return (
     <div className={classes.root}>
-      <div className={classes.header}>
+      {/* <div className={classes.header}>
         <Button
           onClick={() => handleGoBack()}
           variant="outlined"
@@ -47,8 +47,13 @@ const SoftwareExperiencePage = () => {
         <Typography>
           Learn More About Software Experience on this page
         </Typography>
-      </div>
-      <ExpToggle exp={exp} setExp={setExp} />
+      </div> */}
+      <ExpToggle
+        exp={exp}
+        setExp={setExp}
+        professionalComponent={<ProfessionalExp />}
+        personalComponent={<PersonalExp />}
+      />
     </div>
   );
 };

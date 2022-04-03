@@ -7,15 +7,19 @@ import {
 import React from 'react';
 import ExpToggle from '../components/ExpToggle';
 import Theme from '../components/Theme';
+import PersonalSoftwareExp from '../components/personal/PersonalSoftwareExp';
+import ProfessionalSoftwareExp from '../components/professional/ProfessionalSoftwareExp';
 
 describe('exp toggle component tests', () => {
   // Setup
   let exp = 'professional';
   const setExp = (newExp: {}) => {};
+  
   // Clean up
   afterEach(() => {
     cleanup();
   });
+  
 
   test('parent div renders', () => {
     // Cannot put into beforeEach since last test needs access to rerenderer
@@ -24,6 +28,8 @@ describe('exp toggle component tests', () => {
         <ExpToggle
           exp={exp}
           setExp={setExp}
+          professionalComponent={<ProfessionalSoftwareExp />}
+          personalComponent={<PersonalSoftwareExp />}
         />
       </Theme>
     );
@@ -38,6 +44,8 @@ describe('exp toggle component tests', () => {
         <ExpToggle
           exp={exp}
           setExp={setExp}
+          professionalComponent={<ProfessionalSoftwareExp />}
+          personalComponent={<PersonalSoftwareExp />}
         />
       </Theme>
     );
@@ -57,6 +65,8 @@ describe('exp toggle component tests', () => {
         <ExpToggle
           exp={exp}
           setExp={setExp}
+          professionalComponent={<ProfessionalSoftwareExp />}
+          personalComponent={<PersonalSoftwareExp />}
         />
       </Theme>
     );
@@ -72,6 +82,8 @@ describe('exp toggle component tests', () => {
         <ExpToggle
           exp={"personal"}
           setExp={setExp}
+          professionalComponent={<ProfessionalSoftwareExp />}
+          personalComponent={<PersonalSoftwareExp />}
         />
       </Theme>
     );    
