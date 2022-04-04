@@ -1,50 +1,31 @@
-import React from 'react';
-import { useHistory } from 'react-router';
+import React, { useState } from 'react';
 // MUI
 import makeStyles from '@mui/styles/makeStyles';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import BackIcon from '@mui/icons-material/ArrowBack';
+// Custom
+import ExpToggle from '../components/ExpToggle';
+import ProfessionalExp from '../components/professional/ProfessionalHardwareExp';
+import PersonalExp from '../components/personal/PersonalHardwareExp';
 // Declare Styles
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(1),
     display: 'flex',
     flexDirection: 'column',
-  },
-  header: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  button: {
-    marginRight: theme.spacing(1),
+    padding: theme.spacing(1),
   },
 }));
 
 const HardwareExperiencePage = () => {
   const classes = useStyles();
-  const history = useHistory();
-  /**
-   * Handle Go Back to /porfolio
-   * @fires history.goBack
-   */
-  const handleGoBack = () => history.goBack();
+  const [exp, setExp] = useState('professional');
   
   return (
     <div className={classes.root}>
-      <div className={classes.header}>
-        <Button
-          onClick={() => handleGoBack()}
-          variant="outlined"
-          className={classes.button}
-        >
-          <BackIcon />
-        </Button>
-        <Typography>
-          Learn More About Hardware Experience on this page        
-        </Typography>
-      </div>
+      <ExpToggle
+        exp={exp}
+        setExp={setExp}
+        professionalComponent={<ProfessionalExp />}
+        personalComponent={<PersonalExp />}
+      />
     </div>
   );
 };
