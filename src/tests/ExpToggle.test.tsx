@@ -13,7 +13,10 @@ import ProfessionalSoftwareExp from '../components/professional/ProfessionalSoft
 describe('exp toggle component tests', () => {
   // Setup
   let exp = 'professional';
-  const setExp = (newExp: {}) => {};
+  const setExp = () => {};
+  let order = 'asc';
+  const setOrder = () => {};
+  const goBack = () => {};
   
   // Clean up
   afterEach(() => {
@@ -30,6 +33,9 @@ describe('exp toggle component tests', () => {
           setExp={setExp}
           professionalComponent={<ProfessionalSoftwareExp />}
           personalComponent={<PersonalSoftwareExp />}
+          order={order}
+          setOrder={setOrder}
+          goBack={goBack}
         />
       </Theme>
     );
@@ -46,6 +52,9 @@ describe('exp toggle component tests', () => {
           setExp={setExp}
           professionalComponent={<ProfessionalSoftwareExp />}
           personalComponent={<PersonalSoftwareExp />}
+          order={order}
+          setOrder={setOrder}
+          goBack={goBack}
         />
       </Theme>
     );
@@ -67,6 +76,9 @@ describe('exp toggle component tests', () => {
           setExp={setExp}
           professionalComponent={<ProfessionalSoftwareExp />}
           personalComponent={<PersonalSoftwareExp />}
+          order={order}
+          setOrder={setOrder}
+          goBack={goBack}
         />
       </Theme>
     );
@@ -83,6 +95,9 @@ describe('exp toggle component tests', () => {
           setExp={setExp}
           professionalComponent={<ProfessionalSoftwareExp />}
           personalComponent={<PersonalSoftwareExp />}
+          order={order}
+          setOrder={setOrder}
+          goBack={goBack}
         />
       </Theme>
     );    

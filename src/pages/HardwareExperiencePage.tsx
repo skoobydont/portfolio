@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 // MUI
 import makeStyles from '@mui/styles/makeStyles';
 // Custom
@@ -16,7 +17,10 @@ const useStyles = makeStyles((theme) => ({
 
 const HardwareExperiencePage = () => {
   const classes = useStyles();
+  const history = useHistory();
   const [exp, setExp] = useState('professional');
+  const [order, setOrder] = useState('asc');
+  const goBack = () => history.goBack();
   
   return (
     <div className={classes.root}>
@@ -25,6 +29,9 @@ const HardwareExperiencePage = () => {
         setExp={setExp}
         professionalComponent={<ProfessionalExp />}
         personalComponent={<PersonalExp />}
+        order={order}
+        setOrder={setOrder}
+        goBack={goBack}
       />
     </div>
   );
