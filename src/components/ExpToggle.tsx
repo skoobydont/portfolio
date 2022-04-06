@@ -62,9 +62,4 @@ const ExpToggle = (props: ExpToggleProps) => {
   );
 };
 
-ExpToggle.propTypes = {
-  exp: PropTypes.string.isRequired,
-  setExp: PropTypes.func.isRequired,
-};
-
 export default ExpToggle;
