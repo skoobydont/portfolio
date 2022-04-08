@@ -5,6 +5,8 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import IconButton from '@mui/material/IconButton';
+// Custom
+import ExpRow from '../ExpRow';
 // Declare Styles
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,30 +14,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     padding: theme.spacing(1),
   },
-  expRow: {
-    backgroundColor: theme.palette.primary.light,
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  header: {
-    backgroundColor: theme.palette.primary.dark,
-    display: 'flex',
-    flexDirection: 'row',
-    padding: `${theme.spacing(1)} 0 0 ${theme.spacing(1)}`,
-  },
 }));
-
-interface ExpRowProps {
-  title: string;
-  children: any;
-  icons: Array<IconArrayItem>,
-};
-
-interface IconArrayItem {
-  altTxt: string;
-  imgSrc: string;
-};
-
 
 const ProfessionalSoftwareExp = () => {
   /*/ Important details to cover:
@@ -45,27 +24,6 @@ const ProfessionalSoftwareExp = () => {
 
   */
   const classes = useStyles();
-  // Exp Row
-  const ExpRow = (props: ExpRowProps) => {
-    const { title, children, icons } = props;
-    return (
-      <Box component={Card} className={classes.expRow}>
-        <Box className={classes.header}>
-          <Typography variant="h6">{title}</Typography>
-        </Box>
-        <Box>
-          {icons.map((icon: IconArrayItem, i: number) => (
-            <IconButton>
-              <img src={icon.imgSrc} alt={icon.altTxt} />
-            </IconButton>
-          ))}
-          {/** icon row? */}
-        </Box>
-        {children}
-      </Box>
-    )
-  }
-
   return (
     <div
       data-testid="professionalSoftware"
@@ -75,7 +33,14 @@ const ProfessionalSoftwareExp = () => {
       <Typography variant="h6">
         Professional Software Experience        
       </Typography>
-      <ExpRow title="Developer Co-Op">
+      <ExpRow
+        title="Developer Co-Op"
+        icons={[
+          { altTxt: 'HTML5', imgSrc: '' },
+          { altTxt: 'CSS', imgSrc: '' },
+          { altTxt: 'JavaScript', imgSrc: '' },
+        ]}
+      >
         <Typography>Worked with a linen manufacturer to support digital marketing assets and websites.</Typography>
         <Typography>HTML5, CSS, JavaScript</Typography>
       </ExpRow>
