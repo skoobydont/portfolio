@@ -15,7 +15,7 @@ describe('exp row tests', () => {
       <Theme>
         <ExpRow
           title="Test Title"
-          icons={[{ altTxt: 'Alt Test Text', imgSrc: '' }]}
+          tech={[{ text: 'Alt Test Text', href: '' }]}
         >
           <div>Child Test Element</div>
         </ExpRow>
