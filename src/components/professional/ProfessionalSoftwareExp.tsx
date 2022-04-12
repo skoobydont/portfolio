@@ -5,11 +5,6 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import IconButton from '@mui/material/IconButton';
-// Icons
-import HtmlIcon from '@mui/icons-material/Html';
-import CssIcon from '@mui/icons-material/Css';
-import JavascriptIcon from '@mui/icons-material/Javascript';
-import PhpIcon from '@mui/icons-material/Php';
 // Custom
 import ExpRow from '../ExpRow';
 // Declare Styles
@@ -20,11 +15,17 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
   },
 }));
-// Image Icon Urls
-const HTML_URL = "https://developer.mozilla.org/en-US/docs/Glossary/HTML5";
-const CSS_URL = "https://developer.mozilla.org/en-US/docs/Web/CSS";
-const JS_URL = "https://developer.mozilla.org/en-US/docs/Web/JavaScript";
-
+// Tech List Urls
+const HTML_URL = 'https://developer.mozilla.org/en-US/docs/Glossary/HTML5';
+const CSS_URL = 'https://developer.mozilla.org/en-US/docs/Web/CSS';
+const JAVASCRIPT_URL = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript';
+const PHP_URL = 'https://www.php.net/';
+const WORDPRESS_URL = 'https://wordpress.org/';
+const JAVA_URL = 'https://docs.oracle.com/en/java/index.html';
+const SPRINGBOOT_URL = 'https://spring.io/projects/spring-boot';
+const JUNIT_URL = 'https://junit.org/junit5/docs/current/user-guide/';
+const ANGULAR_URL = 'https://angular.io/';
+const TYPESCRIPT_URL = 'https://www.typescriptlang.org/';
 
 const ProfessionalSoftwareExp = () => {
   /*/ Important details to cover:
@@ -48,7 +49,7 @@ const ProfessionalSoftwareExp = () => {
         tech={[
           { text: 'HTML', href: HTML_URL },
           { text: 'CSS', href: CSS_URL },
-          { text: 'JavaScript', href: JS_URL },
+          { text: 'JavaScript', href: JAVASCRIPT_URL },
         ]}
       >
         <Typography>Worked with a linen manufacturer to support digital marketing assets and websites.</Typography>
@@ -56,11 +57,11 @@ const ProfessionalSoftwareExp = () => {
       <ExpRow
         title="Front End Developer"
         tech={[
-          { text: 'PHP', href: '' },
-          { text: 'WordPress', href: '' },
-          { text: 'HTML', href: '' },
-          { text: 'CSS', href: '' },
-          { text: 'JavaScript', href: '' },
+          { text: 'PHP', href: PHP_URL },
+          { text: 'WordPress', href: WORDPRESS_URL },
+          { text: 'HTML', href: HTML_URL },
+          { text: 'CSS', href: CSS_URL },
+          { text: 'JavaScript', href: JAVASCRIPT_URL },
         ]}
       >
         <Typography>Assisted small digital marketing company with web site management and optimizations for 15+ clients.</Typography>
@@ -68,11 +69,11 @@ const ProfessionalSoftwareExp = () => {
       <ExpRow
         title="Software Engineer"
         tech={[
-          { text: 'Java', href: '' },
-          { text: 'SpringBoot', href: '' },
-          { text: 'JUnit', href: '' },
-          { text: 'Angular', href: '' },
-          { text: 'TypeScript', href: '' },
+          { text: 'Java', href: JAVA_URL },
+          { text: 'SpringBoot', href: SPRINGBOOT_URL },
+          { text: 'JUnit', href: JUNIT_URL },
+          { text: 'Angular', href: ANGULAR_URL },
+          { text: 'TypeScript', href: TYPESCRIPT_URL },
         ]}
       >
         <Typography>Worked as Full Stack developer for clients.</Typography>
@@ -80,11 +81,11 @@ const ProfessionalSoftwareExp = () => {
       <ExpRow
         title="Freelance Fullstack Developer"
         tech={[
-          { text: 'PHP', href: '' },
-          { text: 'WordPress', href: '' },
-          { text: 'HTML', href: '' },
-          { text: 'CSS', href: '' },
-          { text: 'JavaScript', href: '' },
+          { text: 'PHP', href: PHP_URL },
+          { text: 'WordPress', href: WORDPRESS_URL },
+          { text: 'HTML', href: HTML_URL },
+          { text: 'CSS', href: CSS_URL },
+          { text: 'JavaScript', href: JAVASCRIPT_URL },
         ]}
       >
         <Typography>Collaborated with restaurant owners to build out a content management system.</Typography>
@@ -92,7 +93,7 @@ const ProfessionalSoftwareExp = () => {
       <ExpRow
         title="Application Developer"
         tech={[
-          { text: 'PHP', href: '' },
+          { text: 'PHP', href: PHP_URL },
           { text: 'Laravel', href: '' },
           { text: 'TypeScript', href: '' },
           { text: 'Material UI', href: '' },
