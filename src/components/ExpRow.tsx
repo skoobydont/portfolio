@@ -7,6 +7,7 @@ import Card from '@mui/material/Card';
 import IconButton from '@mui/material/IconButton';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import { Button } from '@mui/material';
 // Declare Styles
 const useStyles = makeStyles((theme) => ({
   expRow: {
@@ -24,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
     // maxWidth: '50px',
     // maxHeight: '50px',
     borderRadius: theme.spacing(1),
-    
   },
 }));
 
@@ -32,6 +32,11 @@ const useStyles = makeStyles((theme) => ({
 const ExpRow = (props: ExpRowProps) => {
   const { title, children, tech } = props;
   const classes = useStyles();
+  /**
+   * Handle Click
+   * @param url
+   * @fires win.focus() url in new tab
+   */
   const handleClick = (url: string) => {
     if (url.length < 1) return null;
     const win = window.open(url, "_blank");
@@ -42,9 +47,14 @@ const ExpRow = (props: ExpRowProps) => {
       <Box className={classes.header}>
         <Typography variant="h6">{title}</Typography>
       </Box>
-      <Box component={Tabs} variant="fullWidth">
+      <Box>
         {tech?.map((t: TechArrayItem, i: number) => (
-          <Tab label={t.text} onClick={() => handleClick(t.href)}/>
+          <Button
+            key={i}
+            onClick={() => handleClick(t.href)}
+          >
+            {t.text}
+          </Button>
         ))}
         {/** icon row? */}
       </Box>
