@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
   },
 }));
-// Tech List Urls
+// Tech List Urls TODO: should we put this somewhere else? process? higher up?
 const HTML_URL = 'https://developer.mozilla.org/en-US/docs/Glossary/HTML5';
 const CSS_URL = 'https://developer.mozilla.org/en-US/docs/Web/CSS';
 const JAVASCRIPT_URL = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript';
@@ -26,15 +26,20 @@ const SPRINGBOOT_URL = 'https://spring.io/projects/spring-boot';
 const JUNIT_URL = 'https://junit.org/junit5/docs/current/user-guide/';
 const ANGULAR_URL = 'https://angular.io/';
 const TYPESCRIPT_URL = 'https://www.typescriptlang.org/';
+const LARAVEL_URL = 'https://laravel.com/docs/9.x';
+const MATERIALUI_URL = 'https://mui.com/';
+const REACT_URL = 'https://reactjs.org/';
+const REDUX_URL = 'https://redux.js.org/';
+const EXPRESS_URL = 'https://expressjs.com/';
+const JEST_URL = 'https://jestjs.io/';
+const DOCKER_URL = 'https://docs.docker.com/';
+const ALGORAND_URL = 'https://www.algorand.com/';
+const MYALGOCONNECT_URL = 'https://connect.myalgo.com/';
+const SELENIUM_URL = 'https://www.selenium.dev/';  
 
 const ProfessionalSoftwareExp = () => {
-  /*/ Important details to cover:
-    1. Project overview
-    2. Technologies Used
-    3. Growth area(s)
-
-  */
   const classes = useStyles();
+  
   return (
     <div
       data-testid="professionalSoftware"
@@ -94,15 +99,15 @@ const ProfessionalSoftwareExp = () => {
         title="Application Developer"
         tech={[
           { text: 'PHP', href: PHP_URL },
-          { text: 'Laravel', href: '' },
-          { text: 'TypeScript', href: '' },
-          { text: 'Material UI', href: '' },
-          { text: 'JavaScript', href: '' },
-          { text: 'React', href: '' },
-          { text: 'Redux', href: '' },
-          { text: 'Express', href: '' },
-          { text: 'Jest', href: '' },
-          { text: 'Docker', href: '' },
+          { text: 'Laravel', href: LARAVEL_URL },
+          { text: 'TypeScript', href: TYPESCRIPT_URL },
+          { text: 'Material UI', href: MATERIALUI_URL },
+          { text: 'JavaScript', href: JAVASCRIPT_URL },
+          { text: 'React', href: REACT_URL },
+          { text: 'Redux', href: REDUX_URL },
+          { text: 'Express', href: EXPRESS_URL },
+          { text: 'Jest', href: JEST_URL },
+          { text: 'Docker', href: DOCKER_URL },
         ]}
       >
         <Typography>Joined a small team of developers to maintain and enhance legacy systems while also delivering new applications.</Typography>
@@ -110,11 +115,11 @@ const ProfessionalSoftwareExp = () => {
       <ExpRow
         title="Chief Information Technology Officer"
         tech={[
-          { text: 'Algorand', href: '' },
-          { text: 'MyAlgoConnect', href: '' },
-          { text: 'React', href: '' },
-          { text: 'JavaScript', href: '' },
-          { text: 'Selenium', href: '' },
+          { text: 'Algorand', href: ALGORAND_URL },
+          { text: 'MyAlgoConnect', href: MYALGOCONNECT_URL },
+          { text: 'React', href: REACT_URL },
+          { text: 'JavaScript', href: JAVASCRIPT_URL },
+          { text: 'Selenium', href: SELENIUM_URL },
         ]}
       >
         <Typography>Starting as the only developer, I now also collaborate with business partners on all IT decisions.</Typography>
