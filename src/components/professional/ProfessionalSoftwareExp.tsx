@@ -15,36 +15,14 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
   },
 }));
-// Tech List Urls TODO: should we put this somewhere else? process? higher up?
-const HTML_URL = 'https://developer.mozilla.org/en-US/docs/Glossary/HTML5';
-const CSS_URL = 'https://developer.mozilla.org/en-US/docs/Web/CSS';
-const JAVASCRIPT_URL = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript';
-const PHP_URL = 'https://www.php.net/';
-const WORDPRESS_URL = 'https://wordpress.org/';
-const JAVA_URL = 'https://docs.oracle.com/en/java/index.html';
-const SPRINGBOOT_URL = 'https://spring.io/projects/spring-boot';
-const JUNIT_URL = 'https://junit.org/junit5/docs/current/user-guide/';
-const ANGULAR_URL = 'https://angular.io/';
-const TYPESCRIPT_URL = 'https://www.typescriptlang.org/';
-const LARAVEL_URL = 'https://laravel.com/docs/9.x';
-const MATERIALUI_URL = 'https://mui.com/';
-const REACT_URL = 'https://reactjs.org/';
-const REDUX_URL = 'https://redux.js.org/';
-const EXPRESS_URL = 'https://expressjs.com/';
-const JEST_URL = 'https://jestjs.io/';
-const DOCKER_URL = 'https://docs.docker.com/';
-const ALGORAND_URL = 'https://www.algorand.com/';
-const MYALGOCONNECT_URL = 'https://connect.myalgo.com/';
-const SELENIUM_URL = 'https://www.selenium.dev/';  
 
 const ProfessionalSoftwareExp = () => {
   const classes = useStyles();
-  
+
   return (
     <div
       data-testid="professionalSoftware"
       className={classes.root}
-      id="professionalSoftware"
     >
       <Typography variant="h6">
         Professional Software Experience        
@@ -52,9 +30,9 @@ const ProfessionalSoftwareExp = () => {
       <ExpRow
         title="Developer Co-Op"
         tech={[
-          { text: 'HTML', href: HTML_URL },
-          { text: 'CSS', href: CSS_URL },
-          { text: 'JavaScript', href: JAVASCRIPT_URL },
+          { text: 'HTML', href: process.env.REACT_APP_HTML_URL },
+          { text: 'CSS', href: process.env.REACT_APP_CSS_URL },
+          { text: 'JavaScript', href: process.env.REACT_APP_JAVASCRIPT_URL },
         ]}
       >
         <Typography>Worked with a linen manufacturer to support digital marketing assets and websites.</Typography>
@@ -62,11 +40,11 @@ const ProfessionalSoftwareExp = () => {
       <ExpRow
         title="Front End Developer"
         tech={[
-          { text: 'PHP', href: PHP_URL },
-          { text: 'WordPress', href: WORDPRESS_URL },
-          { text: 'HTML', href: HTML_URL },
-          { text: 'CSS', href: CSS_URL },
-          { text: 'JavaScript', href: JAVASCRIPT_URL },
+          { text: 'PHP', href: process.env.REACT_APP_PHP_URL },
+          { text: 'WordPress', href: process.env.REACT_APP_WORDPRESS_URL },
+          { text: 'HTML', href: process.env.REACT_APP_HTML_URL },
+          { text: 'CSS', href: process.env.REACT_APP_CSS_URL },
+          { text: 'JavaScript', href: process.env.REACT_APP_JAVASCRIPT_URL },
         ]}
       >
         <Typography>Assisted small digital marketing company with web site management and optimizations for 15+ clients.</Typography>
@@ -74,11 +52,11 @@ const ProfessionalSoftwareExp = () => {
       <ExpRow
         title="Software Engineer"
         tech={[
-          { text: 'Java', href: JAVA_URL },
-          { text: 'SpringBoot', href: SPRINGBOOT_URL },
-          { text: 'JUnit', href: JUNIT_URL },
-          { text: 'Angular', href: ANGULAR_URL },
-          { text: 'TypeScript', href: TYPESCRIPT_URL },
+          { text: 'Java', href: process.env.REACT_APP_JAVA_URL },
+          { text: 'SpringBoot', href: process.env.REACT_APP_SPRINGBOOT_URL },
+          { text: 'JUnit', href: process.env.REACT_APP_JUNIT_URL },
+          { text: 'Angular', href: process.env.REACT_APP_ANGULAR_URL },
+          { text: 'TypeScript', href: process.env.REACT_APP_TYPESCRIPT_URL },
         ]}
       >
         <Typography>Worked as Full Stack developer for clients.</Typography>
@@ -86,11 +64,11 @@ const ProfessionalSoftwareExp = () => {
       <ExpRow
         title="Freelance Fullstack Developer"
         tech={[
-          { text: 'PHP', href: PHP_URL },
-          { text: 'WordPress', href: WORDPRESS_URL },
-          { text: 'HTML', href: HTML_URL },
-          { text: 'CSS', href: CSS_URL },
-          { text: 'JavaScript', href: JAVASCRIPT_URL },
+          { text: 'PHP', href: process.env.REACT_APP_PHP_URL },
+          { text: 'WordPress', href: process.env.REACT_APP_WORDPRESS_URL },
+          { text: 'HTML', href: process.env.REACT_APP_HTML_URL },
+          { text: 'CSS', href: process.env.REACT_APP_CSS_URL },
+          { text: 'JavaScript', href: process.env.REACT_APP_JAVASCRIPT_URL },
         ]}
       >
         <Typography>Collaborated with restaurant owners to build out a content management system.</Typography>
@@ -98,16 +76,16 @@ const ProfessionalSoftwareExp = () => {
       <ExpRow
         title="Application Developer"
         tech={[
-          { text: 'PHP', href: PHP_URL },
-          { text: 'Laravel', href: LARAVEL_URL },
-          { text: 'TypeScript', href: TYPESCRIPT_URL },
-          { text: 'Material UI', href: MATERIALUI_URL },
-          { text: 'JavaScript', href: JAVASCRIPT_URL },
-          { text: 'React', href: REACT_URL },
-          { text: 'Redux', href: REDUX_URL },
-          { text: 'Express', href: EXPRESS_URL },
-          { text: 'Jest', href: JEST_URL },
-          { text: 'Docker', href: DOCKER_URL },
+          { text: 'PHP', href: process.env.REACT_APP_PHP_URL },
+          { text: 'Laravel', href: process.env.REACT_APP_LARAVEL_URL },
+          { text: 'TypeScript', href: process.env.REACT_APP_TYPESCRIPT_URL },
+          { text: 'Material UI', href: process.env.REACT_APP_MATERIALUI_URL },
+          { text: 'JavaScript', href: process.env.REACT_APP_JAVASCRIPT_URL },
+          { text: 'React', href: process.env.REACT_APP_REACT_URL },
+          { text: 'Redux', href: process.env.REACT_APP_REDUX_URL },
+          { text: 'Express', href: process.env.REACT_APP_EXPRESS_URL },
+          { text: 'Jest', href: process.env.REACT_APP_JEST_URL },
+          { text: 'Docker', href: process.env.REACT_APP_DOCKER_URL },
         ]}
       >
         <Typography>Joined a small team of developers to maintain and enhance legacy systems while also delivering new applications.</Typography>
@@ -115,11 +93,11 @@ const ProfessionalSoftwareExp = () => {
       <ExpRow
         title="Chief Information Technology Officer"
         tech={[
-          { text: 'Algorand', href: ALGORAND_URL },
-          { text: 'MyAlgoConnect', href: MYALGOCONNECT_URL },
-          { text: 'React', href: REACT_URL },
-          { text: 'JavaScript', href: JAVASCRIPT_URL },
-          { text: 'Selenium', href: SELENIUM_URL },
+          { text: 'Algorand', href: process.env.REACT_APP_ALGORAND_URL },
+          { text: 'MyAlgoConnect', href: process.env.REACT_APP_MYALGOCONNECT_URL },
+          { text: 'React', href: process.env.REACT_APP_REACT_URL },
+          { text: 'JavaScript', href: process.env.REACT_APP_JAVASCRIPT_URL },
+          { text: 'Selenium', href: process.env.REACT_APP_SELENIUM_URL },
         ]}
       >
         <Typography>Starting as the only developer, I now also collaborate with business partners on all IT decisions.</Typography>
