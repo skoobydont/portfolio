@@ -24,5 +24,6 @@ describe('personal software experience tests', () => {
   test('personal software experience parent div renders', () => {
     const pSoftwareExp = screen.getByTestId(/personalsoftware/i);
     expect(pSoftwareExp).toBeInTheDocument();
+    expect(pSoftwareExp.childElementCount).toBeGreaterThan(0);
   });
 });
