@@ -24,5 +24,6 @@ describe('personal hardware experience tests', () => {
   test('personal hardware experience parent div renders', () => {
     const pHardwareExp = screen.getByTestId(/personalhardware/i);
     expect(pHardwareExp).toBeInTheDocument();
+    expect(pHardwareExp.childElementCount).toBeGreaterThan(0);
   });
 });
