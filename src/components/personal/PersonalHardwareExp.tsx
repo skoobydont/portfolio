@@ -31,6 +31,12 @@ const PersonalHardwareExp = () => {
           looking to add nas drive soon
         
       */}
+      <ExpRow
+        tech={[]}
+        title="PC Building"
+      >
+        
+      </ExpRow>
     </div>
   );
 };
