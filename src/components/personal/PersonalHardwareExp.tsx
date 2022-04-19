@@ -35,6 +35,7 @@ const PersonalHardwareExp = () => {
         tech={[]}
         title="PC Building"
       >
+        <Typography>The first desktop computer I built was the much needed upgrade for my parents home system.</Typography>
         
       </ExpRow>
     </div>
