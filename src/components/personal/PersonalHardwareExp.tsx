@@ -36,8 +36,11 @@ const PersonalHardwareExp = () => {
         title="PC Building"
       >
         <Typography>The first desktop computer I built was the much needed upgrade for my parents home system.</Typography>
-        
+        {/* Pics? */}
+        <Typography>I have since built myself a personal computer as well as assisted friends with their upgrades.</Typography>
+        <Typography><a href="https://pcpartpicker.com/" target="_blank">PC Part Picker</a> is a fantastic resource to ensure hardware compatibility.</Typography>
       </ExpRow>
+
     </div>
   );
 };
