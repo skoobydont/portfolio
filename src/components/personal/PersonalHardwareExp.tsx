@@ -21,26 +21,40 @@ const PersonalHardwareExp = () => {
       <Typography>
         Personal Hardware Experience
       </Typography>
-      {/*
-        List of personal hardware exp
-        1. Built self, parents, & others full desktop computers
-        2. Assembled & maintains 3d printer.
-          looking to upgrade auto-bed leveling & octopi integration
-        3. Pi Cluster Configuration -> still working to expand k3s playbook & expose services
-        4. Home Network adminsitrator: hardened router & added cat5e cabling
-          looking to add nas drive soon
-        
-      */}
       <ExpRow
-        tech={[]}
         title="PC Building"
+        tech={[{ text: 'PC Part Picker', href: 'https://pcpartpicker.com/' }]}
       >
         <Typography>The first desktop computer I built was the much needed upgrade for my parents home system.</Typography>
         {/* Pics? */}
         <Typography>I have since built myself a personal computer as well as assisted friends with their upgrades.</Typography>
-        <Typography><a href="https://pcpartpicker.com/" target="_blank">PC Part Picker</a> is a fantastic resource to ensure hardware compatibility.</Typography>
+        <Typography>PC Part Picker's System Builder is a fantastic resource to ensure hardware compatibility.</Typography>
       </ExpRow>
-
+      <ExpRow
+        title="3D Printer"
+        tech={[
+          { text: 'Ender 3', href: 'https://www.techradar.com/reviews/creality-ender-3' },
+          { text: 'OctoPrint', href: 'https://octoprint.org/' },
+        ]}
+      >
+        {/* 3d printer pics */}
+        <Typography>I first assembled my 3d printer a few years ago and have printed a fair amount until the extruder malfunctioned.</Typography>
+        <Typography>I have since replaced the extruder &amp; plan to upgrade the printer with a new Z axis sensor + configuring OctoPrint.</Typography>
+        {/* printed items pics? */}
+      </ExpRow>
+      <ExpRow
+        title="Pi Cluster"
+        tech={[
+          { text: 'Raspberry Pi', href: 'https://www.raspberrypi.org/' },
+          { text: 'K3S', href: 'https://k3s.io/' },
+        ]}
+      >
+        {/* Pi Cluster & K3S Configuration */}
+        <Typography>I may have gone overboard when I installed PoE hats on each pi &amp; supported the build with a 5 port PoE switch and hand-crafted cat5e cables.</Typography>
+        <Typography>I became much more familiar with the terminal and Linux environment while installing necessary packages for k3s &amp; configuring SSH communication.</Typography>
+        <Typography variant="caption"><a href="https://www.ansible.com/overview/how-ansible-works?hsLang=en-us" target="_blank">Ansible</a> is another fascinating tool I would love to spend time learning more.</Typography>
+        {/* Pics? */}
+      </ExpRow>
     </div>
   );
 };
