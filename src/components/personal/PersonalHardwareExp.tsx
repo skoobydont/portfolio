@@ -4,6 +4,8 @@ import { makeStyles } from '@mui/styles';
 import Typography from '@mui/material/Typography';
 // Custom
 import ExpRow from '../ExpRow';
+// IMGs
+import ParentPC from '../../img/parentalPC.JPG';
 // Declare styles
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,6 +29,7 @@ const PersonalHardwareExp = () => {
       >
         <Typography>The first desktop computer I built was the much needed upgrade for my parents home system.</Typography>
         {/* Pics? */}
+        <img src={ParentPC} alt="parental pc" />
         <Typography>I have since built myself a personal computer as well as assisted friends with their upgrades.</Typography>
         <Typography>PC Part Picker's System Builder is a fantastic resource to ensure hardware compatibility.</Typography>
       </ExpRow>
