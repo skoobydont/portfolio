@@ -2,10 +2,14 @@ import React from 'react';
 // MUI
 import { makeStyles } from '@mui/styles';
 import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 // Custom
 import ExpRow from '../ExpRow';
 // IMGs
 import ParentPC from '../../img/parentalPC.JPG';
+import PrinterUpgrade from '../../img/printerUpgrades.JPG';
+import OctopusPrint from '../../img/octopusPrint.JPG';
+import VasePrint from '../../img/vasePrint.JPG';
 // Declare styles
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,10 +17,36 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     padding: theme.spacing(1),
   },
+  img: {
+    maxHeight: '250px',
+    maxWidth: '250px',
+  },
+  imgRow: {
+    display: 'flex',
+    flexDirection: 'row',
+    padding: theme.spacing(1),
+    justifyContent: 'space-around',
+  },
 }));
 
 const PersonalHardwareExp = () => {
   const classes = useStyles();
+  /**
+   * New Tab Image
+   * @param props string & src
+   * @returns {anchor} with image within
+   */
+  const NewTabImg = (props: { src: string, text: string }) => {
+    const {
+      src,
+      text,
+    } = props;
+    return (
+      <a target="_blank" href={src}>
+        <img src={src} alt={text} className={classes.img} />
+      </a>
+    );
+  }
 
   return (
     <div data-testid="personalHardware" className={classes.root}>
@@ -28,8 +58,12 @@ const PersonalHardwareExp = () => {
         tech={[{ text: 'PC Part Picker', href: 'https://pcpartpicker.com/' }]}
       >
         <Typography>The first desktop computer I built was the much needed upgrade for my parents home system.</Typography>
-        {/* Pics? */}
-        <img src={ParentPC} alt="parental pc" />
+        <Box className={classes.imgRow}>
+          <NewTabImg
+            src={ParentPC}
+            text="parental pc"
+          />
+        </Box>
         <Typography>I have since built myself a personal computer as well as assisted friends with their upgrades.</Typography>
         <Typography>PC Part Picker's System Builder is a fantastic resource to ensure hardware compatibility.</Typography>
       </ExpRow>
@@ -40,9 +74,25 @@ const PersonalHardwareExp = () => {
           { text: 'OctoPrint', href: 'https://octoprint.org/' },
         ]}
       >
-        {/* 3d printer pics */}
         <Typography>I first assembled my 3d printer a few years ago and have printed a fair amount until the extruder malfunctioned.</Typography>
+        <Box className={classes.imgRow}>
+          <NewTabImg
+            src={OctopusPrint}
+            text="octopus print"
+          />
+          <NewTabImg
+            src={VasePrint}
+            text="vase print"
+          />
+          {/* <img src={StartersPrint} alt="starters prints" className={classes.img} /> */}
+        </Box>
         <Typography>I have since replaced the extruder &amp; plan to upgrade the printer with a new Z axis sensor + configuring OctoPrint.</Typography>
+        <Box className={classes.imgRow}>
+          <NewTabImg
+            src={PrinterUpgrade}
+            text="printer upgrades"
+          />
+        </Box>
         {/* printed items pics? */}
       </ExpRow>
       <ExpRow
