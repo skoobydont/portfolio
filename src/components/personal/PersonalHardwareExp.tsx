@@ -10,6 +10,7 @@ import ParentPC from '../../img/parentalPC.JPG';
 import PrinterUpgrade from '../../img/printerUpgrades.JPG';
 import OctopusPrint from '../../img/octopusPrint.JPG';
 import VasePrint from '../../img/vasePrint.JPG';
+// TODO: pi cluster pics & pokemon starters pic
 // Declare styles
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,24 +30,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+/**
+ * New Tab Image
+ * @param props string & src
+ * @returns {anchor} with image within
+ */
+const NewTabImg = (props: { src: string, text: string }) => {
+  const { src, text } = props;
+  // Declare classes use here instead of passing via props
+  const classes = useStyles();
+  return (
+    <a target="_blank" href={src}>
+      <img src={src} alt={text} className={classes.img} />
+    </a>
+  );
+}
+
 const PersonalHardwareExp = () => {
   const classes = useStyles();
-  /**
-   * New Tab Image
-   * @param props string & src
-   * @returns {anchor} with image within
-   */
-  const NewTabImg = (props: { src: string, text: string }) => {
-    const {
-      src,
-      text,
-    } = props;
-    return (
-      <a target="_blank" href={src}>
-        <img src={src} alt={text} className={classes.img} />
-      </a>
-    );
-  }
 
   return (
     <div data-testid="personalHardware" className={classes.root}>
@@ -93,7 +94,6 @@ const PersonalHardwareExp = () => {
             text="printer upgrades"
           />
         </Box>
-        {/* printed items pics? */}
       </ExpRow>
       <ExpRow
         title="Pi Cluster"
