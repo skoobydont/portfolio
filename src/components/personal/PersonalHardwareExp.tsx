@@ -10,6 +10,11 @@ import ParentPC from '../../img/parentalPC.JPG';
 import PrinterUpgrade from '../../img/printerUpgrades.JPG';
 import OctopusPrint from '../../img/octopusPrint.JPG';
 import VasePrint from '../../img/vasePrint.JPG';
+import BulbasaurPrint from '../../img/bulbasaurPrint.JPG';
+import CharmanderPrint from '../../img/charmanderPrint.JPG';
+import SquirtlePrint from '../../img/squirtlePrint.JPG';
+import EeveePrint from '../../img/eeveePrint.JPG';
+import PiCluster from '../../img/piCluster.JPG';
 // TODO: pi cluster pics & pokemon starters pic
 // Declare styles
 const useStyles = makeStyles((theme) => ({
@@ -104,9 +109,12 @@ const PersonalHardwareExp = () => {
       >
         {/* Pi Cluster & K3S Configuration */}
         <Typography>I may have gone overboard when I installed PoE hats on each pi &amp; supported the build with a 5 port PoE switch and hand-crafted cat5e cables.</Typography>
+        <NewTabImg
+          src={PiCluster}
+          text="raspberry pi cluster"
+        />
         <Typography>I became much more familiar with the terminal and Linux environment while installing necessary packages for k3s &amp; configuring SSH communication.</Typography>
         <Typography variant="caption"><a href="https://www.ansible.com/overview/how-ansible-works?hsLang=en-us" target="_blank">Ansible</a> is another fascinating tool I would love to spend time learning more.</Typography>
-        {/* Pics? */}
       </ExpRow>
     </div>
   );
