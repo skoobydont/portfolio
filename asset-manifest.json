@@ -1,18 +1,26 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.de597b1b.css",
-    "main.js": "/portfolio/static/js/main.2fb671f1.js",
+    "main.js": "/portfolio/static/js/main.5a7379f0.js",
     "static/js/787.b9ec5bb0.chunk.js": "/portfolio/static/js/787.b9ec5bb0.chunk.js",
     "static/media/parentalPC.JPG": "/portfolio/static/media/parentalPC.8f9f0cd2459f6421602c.JPG",
+    "static/media/printerUpgrades.JPG": "/portfolio/static/media/printerUpgrades.f766ef312d7d46a59345.JPG",
+    "static/media/charmanderPrint.JPG": "/portfolio/static/media/charmanderPrint.1e67959961d7b41eba7a.JPG",
+    "static/media/eeveePrint.JPG": "/portfolio/static/media/eeveePrint.f0d83abb44ba6a544139.JPG",
+    "static/media/bulbasaurPrint.JPG": "/portfolio/static/media/bulbasaurPrint.cf7b86bcc03b6d3ce31a.JPG",
+    "static/media/vasePrint.JPG": "/portfolio/static/media/vasePrint.19aa8a8d0b1d294d5136.JPG",
+    "static/media/piCluster.JPG": "/portfolio/static/media/piCluster.fbd8ed22adf4e3b8130a.JPG",
+    "static/media/squirtlePrint.JPG": "/portfolio/static/media/squirtlePrint.ac1f64b9cd3b395094f7.JPG",
+    "static/media/octopusPrint.JPG": "/portfolio/static/media/octopusPrint.0cae2c6a2efd6153b5b9.JPG",
     "static/media/hardware-tile.png": "/portfolio/static/media/hardware-tile.84420c828a2ea7fc7d5e.png",
     "static/media/sample-code.png": "/portfolio/static/media/sample-code.660f808282e58de77b3f.png",
     "index.html": "/portfolio/index.html",
     "main.de597b1b.css.map": "/portfolio/static/css/main.de597b1b.css.map",
-    "main.2fb671f1.js.map": "/portfolio/static/js/main.2fb671f1.js.map",
+    "main.5a7379f0.js.map": "/portfolio/static/js/main.5a7379f0.js.map",
     "787.b9ec5bb0.chunk.js.map": "/portfolio/static/js/787.b9ec5bb0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.de597b1b.css",
-    "static/js/main.2fb671f1.js"
+    "static/js/main.5a7379f0.js"
   ]
 }
