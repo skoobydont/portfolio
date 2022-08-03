@@ -102,6 +102,16 @@ const ProfessionalSoftwareExp = () => {
       >
         <Typography>Starting as the only developer, I now also collaborate with business partners on all IT decisions.</Typography>
       </ExpRow>
+      <ExpRow
+        title="Full Stack Software Engineer"
+        tech={[
+          { text: 'React', href: process.env.REACT_APP_REACT_URL },
+          { text: 'JavaScript', href: process.env.REACT_APP_JAVASCRIPT_URL },
+          { text: 'GraphQL', href: process.env.REACT_APP_GRAPHQL_URL },
+        ]}
+      >
+        <Typography>Working in a start-up environment, I support &amp; enhance the codebase with various 3rd integrations.</Typography>
+      </ExpRow>
     </div>
   )
 };
