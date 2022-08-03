@@ -38,7 +38,7 @@ const Nav = () => {
         onClick={handleHomeRedirect}
         className={classes.text}
       >
-        Skubak.AJ
+        Skoob
       </Button>
     </AppBar>
   )
