@@ -21,8 +21,7 @@ const TLDR = () => {
       {/* TODO: more thorough about me stuff after the tldr */}
       <Typography variant="h4">Welcome to my portfolio website!</Typography>
       <Typography sx={{ mt: 1 }}>
-        I have recently earned my CompTIA Security+ certification and am actively looking to join a team
-        in need of a security-focused full-stack developer / analyst.
+        I spend too much time behind a screen and keyboard...so I will always take an opportunity to be outdoors or rest my eyes.
       </Typography>
       <Typography sx={{ mt: 1, mb: 1 }}>
         Check out some of the projects I have worked on during my IT journey:
