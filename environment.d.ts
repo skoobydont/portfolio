@@ -27,6 +27,7 @@ declare global {
       REACT_APP_SELENIUM_URL: string;
       REACT_APP_CSHARP_URL: string;
       REACT_APP_BOOTSTRAP_URL: string;
+      REACT_APP_GRAPHQL_URL: string;
     }
   }
 }
