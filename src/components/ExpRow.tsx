@@ -1,6 +1,7 @@
 import React from 'react';
 // MUI
 import makeStyles from '@mui/styles/makeStyles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -17,12 +18,20 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.primary.dark,
     marginBottom: theme.spacing(1),
   },
+  desktop: {
+    maxWidth: '750px',
+  },
+  content: {
+    paddingLeft: theme.spacing(1),
+    paddingRight: theme.spacing(1),
+  },
 }));
 
 // Exp Row
 const ExpRow = (props: ExpRowProps) => {
   const { title, children, tech } = props;
   const classes = useStyles();
+  const isMobile = useMediaQuery((t: any) => t.breakpoints.down('sm'));
   /**
    * Handle Click
    * @param url
@@ -33,24 +42,31 @@ const ExpRow = (props: ExpRowProps) => {
     const win = window.open(url, "_blank");
     win?.focus();
   }
+
   return (
-    <Box component={Card} className={classes.expRow} data-testid={`expRow-${title}`}>
+    <Box
+      component={Card}
+      className={`${classes.expRow}${isMobile ? '' : ` ${classes.desktop}`}`}
+      data-testid={`expRow-${title}`}
+    >
       <Box className={classes.header}>
         <Typography variant="h6">{title}</Typography>
       </Box>
-      {children}
-      <Box>
-        {tech?.map((t: TechArrayItem, i: number) => (
-          <Button
-            key={i}
-            onClick={() => handleClick(t.href)}
-          >
-            {t.text}
-          </Button>
-        ))}
+      <Box className={classes.content}>
+        {children}
+        <Box>
+          {tech?.map((t: TechArrayItem, i: number) => (
+            <Button
+              key={i}
+              onClick={() => handleClick(t.href)}
+            >
+              {t.text}
+            </Button>
+          ))}
+        </Box>
       </Box>
     </Box>
-  )
+  );
 };
 
 interface ExpRowProps {
