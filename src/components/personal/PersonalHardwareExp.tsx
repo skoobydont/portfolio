@@ -1,6 +1,7 @@
 import React from 'react';
 // MUI
 import { makeStyles } from '@mui/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 // Custom
@@ -20,7 +21,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    padding: theme.spacing(1),
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
+    margin: 'auto',
   },
   medImg: {
     maxHeight: '250px',
@@ -42,7 +45,10 @@ const useStyles = makeStyles((theme) => ({
   smallImg: {
     maxHeight: '150px',
     maxWidth: '150px',    
-  }
+  },
+  mobile: {
+    flexDirection: 'column',
+  },
 }));
 
 /**
@@ -75,6 +81,7 @@ const NewTabImg = (props: { src: string, text: string, imgSize: string }) => {
 
 const PersonalHardwareExp = () => {
   const classes = useStyles();
+  const isMobile = useMediaQuery((t: any) => t.breakpoints.down('sm'));
 
   return (
     <div data-testid="personalHardware" className={classes.root}>
@@ -104,7 +111,7 @@ const PersonalHardwareExp = () => {
         ]}
       >
         <Typography>I first assembled my 3d printer a few years ago and have printed a fair amount until the extruder malfunctioned.</Typography>
-        <Box className={classes.imgRow}>
+        <Box className={`${classes.imgRow}${isMobile ? ` ${classes.mobile}` : ''}`}>
           <NewTabImg
             src={OctopusPrint}
             text="octopus print"
