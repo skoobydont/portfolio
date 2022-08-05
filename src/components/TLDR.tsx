@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     maxWidth: '75%',
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(4),
   },
 }));
 /**
