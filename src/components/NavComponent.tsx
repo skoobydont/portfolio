@@ -29,7 +29,7 @@ const Nav = () => {
   const handleHomeRedirect = () => history.push(process.env.REACT_APP_HOME_URL);
   return (
     <AppBar
-      position="static"
+      position="fixed"
       className={classes.bar}
       data-testid="Nav"
     >
@@ -41,7 +41,7 @@ const Nav = () => {
         Skoob
       </Button>
     </AppBar>
-  )
+  );
 };
 
 export default Nav;

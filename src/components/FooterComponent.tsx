@@ -5,6 +5,7 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import makeStyles from '@mui/styles/makeStyles';
 import Tooltip from '@mui/material/Tooltip';
+import Paper from '@mui/material/Paper';
 // Icons
 import HomeIcon from '@mui/icons-material/Home';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -45,41 +46,43 @@ const Footer = () => {
     return null;
   }
   return (
-    <BottomNavigation className={classes.root} data-testid="footer">
-      <BottomNavigationAction
-        icon={(
-          <Tooltip title="Home">
-            <HomeIcon />
-          </Tooltip>
-        )}
-        className={classes.icon}
-        onClick={handleHomeRedirect}
-        id="Home"
-        data-testid="Home"
-      />
-      <BottomNavigationAction
-        icon={(
-          <Tooltip title="LinkedIn">
-            <LinkedInIcon />          
-          </Tooltip>
-        )}
-        className={classes.icon}
-        onClick={() => handleOpenTab(process.env.REACT_APP_LINKED_IN_URL)}
-        id="LinkedIn"
-        data-testid="LinkedIn"
-      />
-      <BottomNavigationAction
-        icon={(
-          <Tooltip title="GitHub">
-            <GitHubIcon />
-          </Tooltip>
-        )}
-        className={classes.icon}
-        onClick={() => handleOpenTab(process.env.REACT_APP_GITHUB_URL)}
-        id="GitHub"
-        data-testid="GitHub"
-      />
-    </BottomNavigation>
+    <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+      <BottomNavigation className={classes.root} data-testid="footer">
+        <BottomNavigationAction
+          icon={(
+            <Tooltip title="Home">
+              <HomeIcon />
+            </Tooltip>
+          )}
+          className={classes.icon}
+          onClick={handleHomeRedirect}
+          id="Home"
+          data-testid="Home"
+        />
+        <BottomNavigationAction
+          icon={(
+            <Tooltip title="LinkedIn">
+              <LinkedInIcon />          
+            </Tooltip>
+          )}
+          className={classes.icon}
+          onClick={() => handleOpenTab(process.env.REACT_APP_LINKED_IN_URL)}
+          id="LinkedIn"
+          data-testid="LinkedIn"
+        />
+        <BottomNavigationAction
+          icon={(
+            <Tooltip title="GitHub">
+              <GitHubIcon />
+            </Tooltip>
+          )}
+          className={classes.icon}
+          onClick={() => handleOpenTab(process.env.REACT_APP_GITHUB_URL)}
+          id="GitHub"
+          data-testid="GitHub"
+        />
+      </BottomNavigation>
+    </Paper>
   );
 }
 
