@@ -16,6 +16,7 @@ import CharmanderPrint from '../../img/charmanderPrint.JPG';
 import SquirtlePrint from '../../img/squirtlePrint.JPG';
 import EeveePrint from '../../img/eeveePrint.JPG';
 import PiCluster from '../../img/piCluster.JPG';
+import NASpic from '../../img/little-nas.JPG';
 // Declare styles
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -176,6 +177,18 @@ const PersonalHardwareExp = () => {
         </Box>
         <Typography>I became much more familiar with the terminal and Linux environment while installing necessary packages for k3s &amp; configuring SSH communication.</Typography>
         <Typography variant="caption"><a href="https://www.ansible.com/overview/how-ansible-works?hsLang=en-us" target="_blank">Ansible</a> is another fascinating tool I would love to spend time learning more.</Typography>
+      </ExpRow>
+      <ExpRow
+        title="NAS Drive"
+        tech={[]}
+      >
+        <Typography>Getting a fair amount of digital media over to this new addition: 4-bay NAS device.</Typography>
+        <Typography>I had a blast configuring the device &amp; offloading those storage needs from my main device.</Typography>
+        <NewTabImg
+          src={NASpic}
+          text="NAS Device"
+          imgSize="medium"
+        />
       </ExpRow>
     </div>
   );
